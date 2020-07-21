@@ -9,19 +9,19 @@ import * as serviceWorker from './serviceWorker';
 // append relevant codes to strings
 // call component that takes relavent string and returns array of questions via fetch
 
-
-function getData() {
+let Results = [];
 
 fetch('https://opentdb.com/api.php?amount=10')
   .then(response => response.json())
   .then(data => {
-    console.log(data)
-    return data.results[0].category;
+    console.log(data.results)
+    Results.push(data.results);
+  })
+  .catch(function (err) {
+    console.log(err);
   });
-}
 
-let questions = getData()
-console.log("hello world", questions)
+console.log("hi", Results);
 
 ReactDOM.render(
   <React.StrictMode>

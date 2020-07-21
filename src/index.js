@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 // set up menu
 // append relevant codes to strings
 // call component that takes relavent string and returns array of questions via fetch
+// write tests
 
 let Results = [];
 

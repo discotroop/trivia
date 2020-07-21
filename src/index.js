@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Game from './Game';
 import * as serviceWorker from './serviceWorker';
 import Menu from './Menu.js';
-import GameView from './GameView.js';
+import QuestionView from './QuestionView.js';
 
 // https://opentdb.com/api_config.php
 // set up menu
@@ -17,19 +17,19 @@ let Results = [];
 fetch('https://opentdb.com/api.php?amount=10')
   .then(response => response.json())
   .then(data => {
-    console.log(data.results)
     Results.push(data.results);
   })
   .catch(function (err) {
     console.log(err);
   });
 
-console.log("hi", Results);
+let test = Results;
+
+console.log("Set Results", Results, test);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Menu />
-    <GameView />
+    <Game questions={Results}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

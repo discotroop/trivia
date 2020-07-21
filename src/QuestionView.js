@@ -1,5 +1,5 @@
 import React from 'react'
-import './GameView.css'
+import './QuestionView.css'
 
 // spin of sub components and pull them in
 // make this a class?
@@ -22,9 +22,9 @@ function GameView () {
             </div>
             <div className="Answers">
                 <button value="John Lennon" onClick={(e) => handleAnswer(e)}> John Lennon </button>
-                <button> Syd Barrett </button>
-                <button> David Gilmour </button>
-                <button> Floyd </button> 
+                <button value="Syd Barrett" onClick={(e) => handleAnswer(e)}> Syd Barrett </button>
+                <button value="David Gilmour" onClick={(e) => handleAnswer(e)}> David Gilmour </button>
+                <button value="Floyd" onClick={(e) => handleAnswer(e)}> Floyd </button> 
             </div>
         
         </div>

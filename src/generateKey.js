@@ -5,6 +5,9 @@
 
 // Set default call.
 
+
+// change this to take one argument and pass in an object with
+// amount, category and difficulty keys.?
 function generateKey(amount, category, difficulty) {
 
     // set default call

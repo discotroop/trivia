@@ -1,0 +1,20 @@
+.Game {
+    background-color: lightgray;
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.Question-Text {
+    padding-bottom: 10px;
+}
+
+.Answers {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    color: green;
+}

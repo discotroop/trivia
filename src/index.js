@@ -30,7 +30,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Menu />
     <GameView />
-    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

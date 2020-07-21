@@ -17,15 +17,26 @@ let Results = [];
 fetch('https://opentdb.com/api.php?amount=10')
   .then(response => response.json())
   .then(data => {
-    Results.push(data.results);
+    data.results.forEach(function(result) {
+      Results.push(result);
+    })
+    console.log(Results[1])
   })
   .catch(function (err) {
     console.log(err);
   });
 
-let test = Results;
+function massageData() {
+  let final = []
+  Results.forEach(function(result) {
+      final.push(result);
+  });
+  return final
+}
 
-console.log("Set Results", Results, test);
+let testing = massageData();
+console.log("testing", testing)
+console.log("Set Results", Results);
 
 ReactDOM.render(
   <React.StrictMode>

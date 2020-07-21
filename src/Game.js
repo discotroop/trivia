@@ -18,7 +18,7 @@ class Game extends React.Component {
   render() {
     return <div>
       <div>
-        {this.state.questions}
+        {console.log(this.state.questions)}
       </div>
       <QuestionView />
     </div>

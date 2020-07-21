@@ -2,6 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// on load, set app and mount menu component
+// on start, dismount menu and launch game
+// on end, dismount game and mount end (replay => repeat call and do game, quit => base window)
+// strucute it out, who is the final source of truth for this app ?
+
 function App() {
   return (
     <div className="App">

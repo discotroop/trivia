@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Menu from './Menu.js';
+import GameView from './GameView.js';
 
 // https://opentdb.com/api_config.php
 // set up menu
@@ -28,6 +29,7 @@ console.log("hi", Results);
 ReactDOM.render(
   <React.StrictMode>
     <Menu />
+    <GameView />
     <App />
   </React.StrictMode>,
   document.getElementById('root')

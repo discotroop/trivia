@@ -4,11 +4,24 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// https://opentdb.com/api_config.php
+// set up menu
+// append relevant codes to strings
+// call component that takes relavent string and returns array of questions via fetch
+
+
+function getData() {
+
 fetch('https://opentdb.com/api.php?amount=10')
   .then(response => response.json())
-  .then(data => console.log(data));
+  .then(data => {
+    console.log(data)
+    return data.results[0].category;
+  });
+}
 
-console.log("hello world")
+let questions = getData()
+console.log("hello world", questions)
 
 ReactDOM.render(
   <React.StrictMode>

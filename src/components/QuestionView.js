@@ -14,14 +14,13 @@ function QuestionView (props) {
         console.log(e.target.value)
     }
     console.log(props.question)
-    function buildButtons() {
-        let buttons = props.question.incorrect_answers.map(function(answer) {
-            return (
-                <div> answer </div>
-            );
-        });
-    }
-    console.log(props.questions)
+    // function buildButtons() {
+    //     let buttons = props.question.incorrect_answers.map(function(answer) {
+    //         return (
+    //             <div> answer </div>
+    //         );
+    //     });
+    // }
     return (
         <div className="Game">
             <div className="Title"> 

@@ -1,6 +1,6 @@
 import React from 'react';
-import './components/Game';
-import QuestionView from './components/QuestionView.js'
+import './Game.css';
+import QuestionView from './QuestionView.js'
 
 // on load, set Game and mount menu component
 // on start, dismount menu and launch game
@@ -12,14 +12,17 @@ class Game extends React.Component {
     super(props);
     this.state = {
       questions: props.questions,
+      iterator: 0,
     }
   }
+
+
   render() {
     return <div>
       <div>
         {console.log(this.state.questions)}
       </div>
-      <QuestionView />
+      <QuestionView question={this.state.questions[this.state.iterator]} />
     </div>
   }
 }

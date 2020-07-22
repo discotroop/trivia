@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Game from './Game';
 import * as serviceWorker from './serviceWorker';
-import Menu from './Menu.js';
-import QuestionView from './QuestionView.js';
+import Menu from './components/Menu.js';
+import QuestionView from './components/QuestionView.js';
 
 // https://opentdb.com/api_config.php
 // set up menu
@@ -12,40 +12,42 @@ import QuestionView from './QuestionView.js';
 // call component that takes relavent string and returns array of questions via fetch
 // write tests
 
-let Results = [];
+// Query for Questions
+let Questions = [];
 
 fetch('https://opentdb.com/api.php?amount=10')
   .then(response => response.json())
   .then(data => {
-    data.results.forEach(function(result) {
-      Results.push(result);
+    data.results.forEach(function(question) {
+      // consolidate correct answer into incorrect_answers array
+      question.incorrect_answers.push(question.correct_answer);
+      // shuffle the order of the incorrect_answers array to randomize order.
+      question.incorrect_answers = shuffleArray(question.incorrect_answers);
+      // add formatted question to Questions array
+      Questions.push(question);
     })
-    console.log(Results[1])
   })
+  // handle errors
   .catch(function (err) {
     console.log(err);
   });
 
-function massageData() {
-  let final = []
-  Results.forEach(function(result) {
-      final.push(result);
-  });
-  return final
-}
+console.log("Set Questions", Questions);
 
-let testing = massageData();
-console.log("testing", testing)
-console.log("Set Results", Results);
+// randomize questions order
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <Game questions={Results}/>
+    <Game questions={Questions}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

@@ -1,5 +1,6 @@
 import React from 'react'
 import './QuestionView.css'
+import AnswerButton from './AnswerButton.js'
 
 // spin of sub components and pull them in
 // make this a class?
@@ -7,16 +8,25 @@ import './QuestionView.css'
 // spin out buttons into their own component with handleClick passed down from app
 // and values passed in by props
 
-function GameView () {
+function QuestionView (props) {
     function handleAnswer(e) {
         e.preventDefault();
         console.log(e.target.value)
     }
+    console.log(props.question)
+    function buildButtons() {
+        let buttons = props.question.incorrect_answers.map(function(answer) {
+            return (
+                <div> answer </div>
+            );
+        });
+    }
+    console.log(props.questions)
     return (
         <div className="Game">
             <div className="Title"> 
-            <h1> Trivia Time! </h1>  
-                </div> 
+                <h1> Trivia Time! </h1>  
+            </div> 
             <div className="Question-Text">
                 Who is the Pink Floyd Song 'Shine On You Crazy Diamonds' written about?
             </div>
@@ -31,4 +41,4 @@ function GameView () {
     )
 }
 
-export default GameView
+export default QuestionView

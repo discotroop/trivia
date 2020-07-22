@@ -13,7 +13,6 @@ function QuestionView (props) {
         e.preventDefault();
         console.log(e.target.value)
     }
-    console.log(props.question)
     // function buildButtons() {
     //     let buttons = props.question.incorrect_answers.map(function(answer) {
     //         return (
@@ -24,7 +23,7 @@ function QuestionView (props) {
     return (
         <div className="Game">
             <div className="Title"> 
-                <h1> Trivia Time! </h1>  
+                <h1> Trivia Time! too </h1>  
             </div> 
             <div className="Question-Text">
                 Who is the Pink Floyd Song 'Shine On You Crazy Diamonds' written about?

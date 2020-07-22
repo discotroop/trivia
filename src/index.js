@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Game from './Game';
+import Game from './components/Game.js';
 import * as serviceWorker from './serviceWorker';
 import Menu from './components/Menu.js';
 import QuestionView from './components/QuestionView.js';

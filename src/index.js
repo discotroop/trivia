@@ -36,7 +36,7 @@ fetch('https://opentdb.com/api.php?amount=10')
 console.log("Set Questions", Questions);
 console.log("individual", Questions[0])
 
-// THIS IS A TIMING ISSUE... I THINK
+// THIS IS A TIMING ISSUE... I THINK => look at the call stack!
 
 // randomize questions order
 function shuffleArray(array) {

@@ -27,7 +27,7 @@ class Game extends React.Component {
   render() {
     return (
     <div>
-      <QuestionView question={ this.props.questions } />
+      <QuestionView question={this.state.questions} iterator={ this.state.iterator }/>
     </div>
     )
   }

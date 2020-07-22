@@ -9,17 +9,20 @@ import AnswerButton from './AnswerButton.js'
 // and values passed in by props
 
 function QuestionView (props) {
+    const questions = props.question;
+    console.log(props.question.length);
+
     function handleAnswer(e) {
         e.preventDefault();
         console.log(e.target.value)
     }
-    // function buildButtons() {
-    //     let buttons = props.question.incorrect_answers.map(function(answer) {
-    //         return (
-    //             <div> answer </div>
-    //         );
-    //     });
-    // }
+    function buildButtons() {
+        let buttons = props.question.incorrect_answers.map(function(answer) {
+            return (
+                <div> answer </div>
+            );
+        });
+    }
     return (
         <div className="Game">
             <div className="Title"> 

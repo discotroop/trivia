@@ -16,15 +16,16 @@ class Game extends React.Component {
       iterator: 0,
     }
   }
-  // componentDidMount() {
-  //   this.setState({
-  //     questions: this.props.questions,
-  //     iterator: 0,
-  //   })
-  // }
-
+  componentDidMount() {
+    this.setState({
+      questions: this.props.questions,
+      iterator: 0,
+    })
+  }
+  
 
   render() {
+    console.log(this.state.questions[2])
     return (
     <div>
       <QuestionView question={this.state.questions} iterator={ this.state.iterator }/>

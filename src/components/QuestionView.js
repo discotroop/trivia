@@ -10,19 +10,30 @@ import AnswerButton from './AnswerButton.js'
 
 function QuestionView (props) {
     const questions = props.question;
-    console.log(props.question.length);
+    console.log(props.question[0]);
 
     function handleAnswer(e) {
         e.preventDefault();
         console.log(e.target.value)
     }
+    // function buildButtons() {
+    //     questions.forEach(function(question) {
+    //         question.incorrect_answers.forEach(function(answers) {
+    //             let buttons = answers.map(function(answer) {
+    //                 return (
+    //                     <div> {answer} </div>
+    //                 );
+    //             });
+    //             console.log(buttons)
+    //         })
+    //     });
+    // }
     function buildButtons() {
-        let buttons = props.question.incorrect_answers.map(function(answer) {
-            return (
-                <div> answer </div>
-            );
+        questions.forEach(function(question) {
+            console.log(question)
         });
     }
+    buildButtons();
     return (
         <div className="Game">
             <div className="Title"> 

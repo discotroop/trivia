@@ -19,6 +19,7 @@ fetch('https://opentdb.com/api.php?amount=10')
   .then(response => response.json())
   .then(data => {
     data.results.forEach(function(question) {
+      console.log(question)
       // consolidate correct answer into incorrect_answers array
       question.incorrect_answers.push(question.correct_answer);
       // shuffle the order of the incorrect_answers array to randomize order.
@@ -33,6 +34,7 @@ fetch('https://opentdb.com/api.php?amount=10')
   });
 
 console.log("Set Questions", Questions);
+console.log("individual", Questions[0])
 
 // randomize questions order
 function shuffleArray(array) {

@@ -18,6 +18,15 @@ class Game extends React.Component {
       iterator: 0,
     }
   }
+  render() {
+    return (
+    <div>
+      hello
+      <Questions questions={this.state.questions} />
+    </div>
+    )
+  }
+
   shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -31,12 +40,12 @@ class Game extends React.Component {
     .then(response => response.json())
     .then(data => {
     data.results.forEach(function(question) {
-      // console.log(question)
-      // // consolidate correct answer into incorrect_answers array
-      // question.incorrect_answers.push(question.correct_answer);
-      // // shuffle the order of the incorrect_answers array to randomize order.
-      // question.incorrect_answers = this.shuffleArray(question.incorrect_answers);
-      // // add formatted question to Questions array
+      console.log(question)
+      // consolidate correct answer into incorrect_answers array
+      question.incorrect_answers.push(question.correct_answer);
+      // shuffle the order of the incorrect_answers array to randomize order.
+      question.incorrect_answers = this.shuffleArray(question.incorrect_answers);
+      // add formatted question to Questions array
       Questions.push(question);
     })
   })
@@ -50,15 +59,6 @@ class Game extends React.Component {
     })
   }
   
-
-  render() {
-    return (
-    <div>
-      hello
-      <Questions questions={this.state.questions} />
-    </div>
-    )
-  }
 }
 
 export default Game;

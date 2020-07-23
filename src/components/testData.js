@@ -3,15 +3,17 @@
     import React from 'react'
 
     const Questions = ({ questions }) => {
+
+
       return (
-        <div>
-          <center><h1>Contact List</h1></center>
+        <div className="testData">
+          {console.log(questions)}
           {questions.map((question) => (
-            <div class="card">
-              <div class="card-body">
-                <h6 class="card-subtitle mb-2 text-muted">{question.category}</h6>
-                <p class="card-text">{question.difficulty}</p>
-              </div>
+            
+            <div>
+                {console.log(question.category)}
+                hello
+                <p> {question.category} </p>
             </div>
           ))}
         </div>

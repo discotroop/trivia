@@ -54,7 +54,6 @@ class Game extends React.Component {
   render() {
     return (
     <div>
-      {console.log(this.state.questions)}
       hello
       <Questions questions={this.state.questions} />
     </div>

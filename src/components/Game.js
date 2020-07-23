@@ -1,8 +1,5 @@
 import React from 'react';
 import './Game.css';
-import QuestionView from './QuestionView.js'
-import Bouncer from 'react-data-bouncer'
-import Questions from './testData.js'
 import Cards from './Cards.js'
 
 // on load, set Game and mount menu component
@@ -14,21 +11,21 @@ class Game extends React.Component {
   render() {
     return (
         <div> hello 
-          <Cards questions={this.state.contacts} />
+          <Cards questions={this.state.questions} />
         </div>
     )
 }
 
 state = {
-    contacts: []
+    questions: []
 };
 
 componentDidMount() {
     fetch('https://opentdb.com/api.php?amount=10')
         .then(res => res.json())
         .then((data) => {
-            this.setState({ contacts: data.results })
-            console.log(this.state.contacts)
+            this.setState({ questions: data.results })
+            console.log(this.state.questions)
         })
         .catch(console.log)
     }

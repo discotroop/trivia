@@ -8,9 +8,9 @@ const Cards = ({questions, checkAnswer, count}) => {
     let c = [
         {
             question: "test",
-            answer: ["test"],
+            answers: ["test"],
             correctAnswer: "right",
-            checkAnswer: "hllo"
+            checkAnswer: function() {console.log("sample")}
         }
     ];
 
@@ -20,29 +20,26 @@ const Cards = ({questions, checkAnswer, count}) => {
             answers: question.incorrect_answers,
             correctAnswer: question.correct_answer,
             checkAnswer: checkAnswer,
+            index: index,
         })
     ))
     console.log("c", c[count])
+    console.log("c answer", c[count].answers)
     
     return (
         <div>
-            <div>
-                <p> {c[count].question}</p>
-            </div>
             <center><h1>Questions</h1></center>
             <div className="card-holder">
-            {questions.map((question, index) => (
-                <div className="card" key={index}>
+                <div className="card">
                     <div className="card-body">
-                        <h5 className="card-question">{decodeHtml(question.question)}</h5>
+                        <h5 className="card-question">{decodeHtml(c[count].question)}</h5>
                         <Answers 
-                        answers={question.incorrect_answers} 
-                        correctAnswer={question.correct_answer}
-                        checkAnswer={checkAnswer}
+                        answers={c[count].answers} 
+                        correctAnswer={c[count].correctAnswer}
+                        checkAnswer={c[count].checkAnswer}
                         />
                     </div>
                 </div>
-            ))}
             </div>
         </div>
     )

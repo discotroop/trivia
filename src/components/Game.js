@@ -26,6 +26,26 @@ import Cards from './Cards.js'
           // ** remove present card
           // ** load next card
 
+// Game End + Start + Loop
+  // Game end is really part of the game loop
+    // on app launch
+      // display menu
+      // hide card => delay fetch call
+    // on menu selection submitted
+      // construct api url
+      // call fetch
+      // hide menu
+      // display card [0]
+    // on game end
+      // either hide cards or show all with correct answers ?
+      // offer play again option => same api call
+          // new call to api with same string as before
+          // load cards
+      // new game option
+        // hide cards
+        // hide game end screen
+        // load menu 
+
 class Game extends React.Component {
 
   constructor(props) {
@@ -44,6 +64,9 @@ class Game extends React.Component {
         <div className="top">
           <div className="question-number"> Current Question # {this.state.iterator} / {this.state.questions.length} </div>
           <div className="score"> Your Score {this.state.score} / {this.state.questions.length} </div>
+        </div>
+        <div className="menu">
+          Hi I'm the menu
         </div>
         <div className="card-holder">
           <Cards 
@@ -99,7 +122,10 @@ state = {
       })
     }
   }
-    }
+  }
+  toggleMenu() {
+    console.log('menu')
+  }
 }
 
 

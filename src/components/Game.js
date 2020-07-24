@@ -21,7 +21,7 @@ class Game extends React.Component {
 
   render() {
     return (
-        <div> hello 
+        <div className="card-holder"> hello 
           <Cards questions={this.state.questions} />
         </div>
     )

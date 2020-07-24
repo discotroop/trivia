@@ -1,19 +1,16 @@
 import React from 'react'
 import Answers from './Answers.js'
-import _ from 'lodash';
+import _ from 'lodash'
+import decodeHtml from './decodeHtml'
 
-// Might need it's own module
-function decodeHtml(html) {
-    var txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
-}
+// Might need it's own modu
 
 const Cards = ({questions}) => {
     console.log(_.unescape('What&#039;s the most common time signature for rock songs?'))
     return (
         <div>
             <center><h1>Questions</h1></center>
+            <div class="card-holder">
             {questions.map((question) => (
                 <div className="card">
                     <div className="card-body">
@@ -22,6 +19,7 @@ const Cards = ({questions}) => {
                     </div>
                 </div>
             ))}
+            </div>
         </div>
     )
 };

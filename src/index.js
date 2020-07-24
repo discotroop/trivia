@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Game from './components/Game.js';
 import * as serviceWorker from './serviceWorker';
-import Menu from './components/Menu.js';
-import QuestionView from './components/QuestionView.js';
 
 // https://opentdb.com/api_config.php
 // set up menu

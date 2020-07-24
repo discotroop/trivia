@@ -1,5 +1,5 @@
 import React from 'react'
-import decodeHtml from './decodeHtml'
+import decodeHtml from './helpers/decodeHtml'
 
 const Answers = ({answers}) => {
     return (

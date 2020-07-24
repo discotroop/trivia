@@ -1,12 +1,11 @@
 import React from 'react'
 import Answers from './Answers.js'
 import _ from 'lodash'
-import decodeHtml from './decodeHtml'
+import decodeHtml from './helpers/decodeHtml'
 
 // Might need it's own modu
 
 const Cards = ({questions}) => {
-    console.log(_.unescape('What&#039;s the most common time signature for rock songs?'))
     return (
         <div>
             <center><h1>Questions</h1></center>

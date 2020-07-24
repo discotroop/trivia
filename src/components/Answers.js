@@ -1,12 +1,12 @@
 import React from 'react'
 import decodeHtml from './helpers/decodeHtml'
 
-const Answers = ({answers}) => {
+const Answers = ({answers, correctAnswer, checkAnswer}) => {
     return (
         <div>
             <div className="answers">
             {answers.map((answer) => (
-                <button> {decodeHtml(answer)} </button>
+                <button onClick={(e) => checkAnswer(e.target.textContent, correctAnswer) }> {decodeHtml(answer)} </button>
             ))}
             </div>
         </div>

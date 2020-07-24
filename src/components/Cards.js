@@ -3,9 +3,7 @@ import Answers from './Answers.js'
 import _ from 'lodash'
 import decodeHtml from './helpers/decodeHtml'
 
-// Might need it's own modu
-
-const Cards = ({questions}) => {
+const Cards = ({questions, checkAnswer}) => {
     return (
         <div>
             <center><h1>Questions</h1></center>
@@ -14,7 +12,11 @@ const Cards = ({questions}) => {
                 <div className="card">
                     <div className="card-body">
                         <h5 className="card-question">{decodeHtml(question.question)}</h5>
-                        <Answers answers={question.incorrect_answers} />
+                        <Answers 
+                        answers={question.incorrect_answers} 
+                        correctAnswer={question.correct_answer}
+                        checkAnswer={checkAnswer}
+                        />
                     </div>
                 </div>
             ))}

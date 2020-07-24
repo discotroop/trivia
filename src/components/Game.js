@@ -26,6 +26,7 @@ class Game extends React.Component {
 
   constructor(props) {
         super(props);
+        this.checkAnswer = this.checkAnswer.bind(this)
         this.state = {
           questions: [],
           iterator: 0,
@@ -33,12 +34,13 @@ class Game extends React.Component {
         }
       }
   checkAnswer(answer, correctAnswer) {
-    if(answer === correctAnswer) {
+    if(answer.trim() === correctAnswer.trim()) {
       this.setState({
         iterator: this.state.iterator + 1,
         score: this.state.score + 1
       })
     } else {
+      console.log(answer.length, correctAnswer.length)
       this.setState({
         iterator: this.state.iterator + 1,
       })

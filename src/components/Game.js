@@ -15,12 +15,16 @@ import Cards from './Cards.js'
       // add score + 1
       // check for last card
         // if last card => end
-        // else load next card
+        // else 
+          // remove present card
+          // load next card
     // if answer wrong
       // add iterator + 1
       // check for last card
         // if last card => end
-        // else load next card
+        // else 
+          // remove present card
+          // load next card
 
 class Game extends React.Component {
 
@@ -33,19 +37,6 @@ class Game extends React.Component {
           score: 0
         }
       }
-  checkAnswer(answer, correctAnswer) {
-    if(answer.trim() === correctAnswer.trim()) {
-      this.setState({
-        iterator: this.state.iterator + 1,
-        score: this.state.score + 1
-      })
-    } else {
-      console.log(answer.length, correctAnswer.length)
-      this.setState({
-        iterator: this.state.iterator + 1,
-      })
-    }
-  }
 
   render() {
     return (
@@ -63,7 +54,7 @@ class Game extends React.Component {
         </div>
       </div>
     )
-}
+  }
 
 state = {
     questions: [],
@@ -71,7 +62,7 @@ state = {
     score: 0,
 };
 
-componentDidMount() {
+ componentDidMount() {
     fetch('https://opentdb.com/api.php?amount=10')
         .then(res => res.json())
         .then((data) => {
@@ -81,13 +72,28 @@ componentDidMount() {
             this.setState(
               { 
                 questions: data.results, 
-                length: data.results.length
+                length: data.results.length,
+                iterator: 1
               })
-            console.log(this.state.questions)
         })
         .catch(console.log)
     }
+  checkAnswer(answer, correctAnswer) {
+    if(answer.trim() === correctAnswer.trim()) {
+      this.setState({
+        iterator: this.state.iterator + 1,
+        score: this.state.score + 1
+      })
+    } else {
+      console.log(answer.length, correctAnswer.length)
+      this.setState({
+        iterator: this.state.iterator + 1,
+      })
+      }
+    }
 }
+
+
 
 export default Game;
 

@@ -6,7 +6,11 @@ const Answers = ({answers, correctAnswer, checkAnswer}) => {
         <div>
             <div className="answers">
             {answers.map((answer) => (
-                <button onClick={(e) => checkAnswer(e.target.textContent, correctAnswer) }> {decodeHtml(answer)} </button>
+                <button 
+                onClick={(e) => checkAnswer(e.target.textContent, correctAnswer)} 
+                key={decodeHtml(answer)}
+                > 
+                {decodeHtml(answer)} </button>
             ))}
             </div>
         </div>

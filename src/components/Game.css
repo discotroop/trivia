@@ -5,3 +5,7 @@
 .answers {
   background-color: lightgreen;
 }
+
+.invisible {
+  display: none;
+}

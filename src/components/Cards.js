@@ -23,8 +23,6 @@ const Cards = ({questions, checkAnswer, count}) => {
             index: index,
         })
     ))
-    console.log("c", c[count])
-    console.log("c answer", c[count].answers)
     
     return (
         <div>

@@ -1,4 +1,7 @@
 import React from 'react'
+import Answers from './Answers.js'
+
+//
 
 const Cards = ({questions}) => {
     return (
@@ -8,10 +11,7 @@ const Cards = ({questions}) => {
                 <div className="card">
                     <div className="card-body">
                         <h5 className="card-title">{question.question}</h5>
-                        <div className="answers">
-                            <button> {question.correct_answer} </button>
-                            <button> {question.incorrect_answers[0]} </button>
-                        </div>
+                        <Answers answers={question.incorrect_answers} />
                     </div>
                 </div>
             ))}

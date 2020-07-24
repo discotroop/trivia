@@ -46,6 +46,12 @@ import Cards from './Cards.js'
         // hide game end screen
         // load menu 
 
+// components to extract ?
+  // question counter at top
+  // score counte at top
+  // menu
+  // subsections of cards
+
 class Game extends React.Component {
 
   constructor(props) {

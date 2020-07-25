@@ -3,7 +3,7 @@ import React from 'react';
 const Menu = (props) => {
   return (
     <div className="Menu">
-      <button onClick={() => props.submit('Questions')}> Testing </button>
+      <button onClick={() => props.submit('Questions')}> Start Game </button>
       {props.view}
     </div>
   );

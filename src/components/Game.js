@@ -65,18 +65,11 @@ class Game extends React.Component {
       <div>
         <div className="top">
           <div className="question-number"> Current Question # {this.state.iterator} / {this.state.questions.length} </div>
-          <div className="score"> Your Score {this.state.score} / {this.state.questions.length} </div>
+          <div className="score"> Your Score {this.state.score} / {this.state.questions.length} correct</div>
         </div>
         <div> 
           {this.dynamicView(this.state.views)}
        </div>
-        <div className="card-holder">
-          <Cards 
-          questions={this.state.questions} 
-          count={this.state.iterator} 
-          checkAnswer={this.checkAnswer} 
-          />
-        </div>
       </div>
     )
   }
@@ -99,7 +92,11 @@ state = {
      case "Menu":
      return (<Menu submit={this.submit} view={this.state.views} />)
      case "Questions":
-     return (<div> questions </div> )
+     return (<Cards 
+      questions={this.state.questions} 
+      count={this.state.iterator} 
+      checkAnswer={this.checkAnswer} 
+      /> )
      default:
      return (<div> default </div>)
    }

@@ -2,6 +2,7 @@ import React from 'react';
 import './Game.css';
 import Cards from './Cards.js'
 import Menu from './Menu.js'
+import EndGame from './EndGame.js'
 
 // on load, set Game and mount menu component
 // on start, dismount menu and launch game
@@ -10,33 +11,33 @@ import Menu from './Menu.js'
 
 // Show Cards
   // ** display only one card at a time
-  // on answerClicked
+  // ** on answerClicked
     // ** check if answer correct
       // ** add iterator + 1
       // ** add score + 1
       // ** check for last card
-        // if last card => end
-        // else 
+        // ** if last card => end
+        // ** else 
           // ** remove present card
           // ** load next card
-    // if answer wrong
+    // ** if answer wrong
       // ** add iterator + 1
-      // check for last card
-        // if last card => end
-        // else 
+      // ** check for last card
+        // ** if last card => end
+        // ** else 
           // ** remove present card
           // ** load next card
 
 // Game End + Start + Loop
   // Game end is really part of the game loop
     // on app launch
-      // display menu
+      // ** display menu
       // hide card => delay fetch call
     // on menu selection submitted
       // construct api url
-      // call fetch
-      // hide menu
-      // display card [0]
+      // ** call fetch
+      // ** hide menu
+      // ** display card [0]
     // on game end
       // either hide cards or show all with correct answers ?
       // offer play again option => same api call
@@ -97,9 +98,17 @@ state = {
       count={this.state.iterator} 
       checkAnswer={this.checkAnswer} 
       /> )
+     case "EndGame":
+     return (<EndGame submit={this.submit} view={this.state.views} reset={this.reset} />)
      default:
      return (<div> default </div>)
    }
+ }
+ reset = () => {
+   this.setState({
+     iterator: 1,
+     score: 0,
+   })
  }
  componentDidMount() {
     fetch('https://opentdb.com/api.php?amount=10')
@@ -122,10 +131,13 @@ state = {
       console.log('gameover')
       if(answer.trim() === correctAnswer.trim()) {
         this.setState({
-          score: this.state.score + 1
+          score: this.state.score + 1,
+          iterator: 1
         })
       }
-      this.setState({views: "Menu"})
+      this.setState({
+        views: "EndGame"
+      })
     } else {
     if(answer.trim() === correctAnswer.trim()) {
       this.setState({

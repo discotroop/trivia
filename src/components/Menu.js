@@ -1,6 +1,9 @@
 import React from 'react';
 
-function Menu() {
+function Menu(props) {
+  function handleMenu() {
+    console.log("clicked")
+  }
   return (
     <div className="Menu">
       <header className="Menu-header">
@@ -8,6 +11,7 @@ function Menu() {
         <p>
           Welcome to Trivia
         </p>
+        <button onClick={props.submit}> click me </button>
       </header>
       <div>
         <h1> Select </h1>

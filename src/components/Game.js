@@ -1,6 +1,7 @@
 import React from 'react';
 import './Game.css';
 import Cards from './Cards.js'
+import Menu from './Menu.js'
 
 // on load, set Game and mount menu component
 // on start, dismount menu and launch game
@@ -56,13 +57,13 @@ class Game extends React.Component {
 
   constructor(props) {
         super(props);
-        this.checkAnswer = this.checkAnswer.bind(this)
-        this.state = {
-          questions: [],
-          iterator: 0,
-          score: 0
-        }
+        this.checkAnswer = this.checkAnswer.bind(this);
+        this.menuSubmit = this.menuSubmit.bind(this);
+        this.submitMenu = this.submitMenu.bind(this);
       }
+  submitMenu() {
+    console.log("testing this", this);
+  }
 
   render() {
     return (
@@ -71,9 +72,9 @@ class Game extends React.Component {
           <div className="question-number"> Current Question # {this.state.iterator} / {this.state.questions.length} </div>
           <div className="score"> Your Score {this.state.score} / {this.state.questions.length} </div>
         </div>
-        <div className="menu">
-          Hi I'm the menu
-        </div>
+        <div> 
+        {this.submitMenu()}
+        {this.state.currentComponent} </div>
         <div className="card-holder">
           <Cards 
           questions={this.state.questions} 
@@ -107,7 +108,15 @@ state = {
         })
         .catch(console.log)
     }
+  menuSubmit() {
+    console.log("menu submit clicked")
+    console.log(this);
+    // this.setState({
+    //   currentComponent: <div> hello </div> 
+    // })
+  }
   checkAnswer(answer, correctAnswer) {
+    console.log(this);
     if(this.state.iterator === this.state.questions.length) {
       console.log('gameover')
       if(answer.trim() === correctAnswer.trim()) {
@@ -129,9 +138,7 @@ state = {
     }
   }
   }
-  toggleMenu() {
-    console.log('menu')
-  }
+  
 }
 
 

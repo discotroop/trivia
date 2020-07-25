@@ -60,10 +60,6 @@ class Game extends React.Component {
         this.checkAnswer = this.checkAnswer.bind(this);
         
       }
-  submitMenu() {
-    console.log("testing this", this);
-  }
-
   render() {
     return (
       <div>
@@ -72,7 +68,7 @@ class Game extends React.Component {
           <div className="score"> Your Score {this.state.score} / {this.state.questions.length} </div>
         </div>
         <div> 
-          <Menu submit={this.submit} />
+          {this.dynamicView(this.state.views)}
        </div>
         <div className="card-holder">
           <Cards 
@@ -94,7 +90,19 @@ state = {
 
  // function name = () => {... code } auto binds this to function
  submit = (selector) => {
-   console.log("submit clicked", this)
+   console.log("submit clicked", this);
+   this.setState({views: selector});
+   console.log(this.state.views)
+ }
+ dynamicView = (selector) => {
+   switch(selector) {
+     case "Menu":
+     return (<Menu submit={this.submit} view={this.state.views} />)
+     case "Questions":
+     return (<div> questions </div> )
+     default:
+     return (<div> default </div>)
+   }
  }
  componentDidMount() {
     fetch('https://opentdb.com/api.php?amount=10')
@@ -120,6 +128,7 @@ state = {
           score: this.state.score + 1
         })
       }
+      this.setState({views: "Menu"})
     } else {
     if(answer.trim() === correctAnswer.trim()) {
       this.setState({

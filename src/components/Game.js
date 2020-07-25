@@ -72,6 +72,7 @@ class Game extends React.Component {
           <div className="score"> Your Score {this.state.score} / {this.state.questions.length} </div>
         </div>
         <div> 
+          <Menu submit={this.submit} />
        </div>
         <div className="card-holder">
           <Cards 
@@ -91,6 +92,10 @@ state = {
     score: 0,
 };
 
+ // function name = () => {... code } auto binds this to function
+ submit = (selector) => {
+   console.log("submit clicked", this)
+ }
  componentDidMount() {
     fetch('https://opentdb.com/api.php?amount=10')
         .then(res => res.json())

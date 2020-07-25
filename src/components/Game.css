@@ -9,3 +9,8 @@
 .invisible {
   display: none;
 }
+
+body {
+  width: 500px;
+  height: 600px;
+}

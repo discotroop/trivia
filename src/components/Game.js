@@ -58,8 +58,7 @@ class Game extends React.Component {
   constructor(props) {
         super(props);
         this.checkAnswer = this.checkAnswer.bind(this);
-        this.menuSubmit = this.menuSubmit.bind(this);
-        this.submitMenu = this.submitMenu.bind(this);
+        
       }
   submitMenu() {
     console.log("testing this", this);
@@ -73,8 +72,7 @@ class Game extends React.Component {
           <div className="score"> Your Score {this.state.score} / {this.state.questions.length} </div>
         </div>
         <div> 
-        {this.submitMenu()}
-        {this.state.currentComponent} </div>
+       </div>
         <div className="card-holder">
           <Cards 
           questions={this.state.questions} 
@@ -87,6 +85,7 @@ class Game extends React.Component {
   }
 
 state = {
+    views: 'Menu',
     questions: [],
     iterator: 0,
     score: 0,
@@ -108,15 +107,7 @@ state = {
         })
         .catch(console.log)
     }
-  menuSubmit() {
-    console.log("menu submit clicked")
-    console.log(this);
-    // this.setState({
-    //   currentComponent: <div> hello </div> 
-    // })
-  }
   checkAnswer(answer, correctAnswer) {
-    console.log(this);
     if(this.state.iterator === this.state.questions.length) {
       console.log('gameover')
       if(answer.trim() === correctAnswer.trim()) {

@@ -3,6 +3,7 @@ import "./Game.css";
 import Cards from "./Cards.js";
 import Menu from "./Menu.js";
 import EndGame from "./EndGame.js";
+import generateKey from "./helpers/GenerateKey.js";
 
 // on load, set Game and mount menu component
 // on start, dismount menu and launch game
@@ -64,8 +65,7 @@ class Game extends React.Component {
       <div>
         <div className="top">
           <div className="question-number">
-            {" "}
-            Current Question # {this.state.iterator} /{" "}
+            {this.fetchNewData()} Current Question # {this.state.iterator} /{" "}
             {this.state.questions.length}{" "}
           </div>
           <div className="score">
@@ -162,6 +162,16 @@ class Game extends React.Component {
         });
       }
     }
+  }
+  fetchNewData() {
+    let key = generateKey(15, 10, "medium");
+    console.log(key);
+    fetch(key)
+      .then(res => res.json())
+      .then(data => {
+        console.log("data", data.results);
+      })
+      .catch(console.log);
   }
 }
 

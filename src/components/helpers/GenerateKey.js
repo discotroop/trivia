@@ -10,24 +10,34 @@
 function generateKey(amount, category, difficulty) {
   // set default call
   let baseString = "https://opentdb.com/api.php?";
+  let lastIndex = baseString.length - 1;
+
   // handle passed amount
   if (amount) {
-    // set amount
+    baseString = baseString + "amount=" + amount;
   } else {
     // set default count to 10
     baseString = baseString + "amount=10";
   }
 
   if (category) {
-    // handle passed category
+    if (baseString[lastIndex] === "?") {
+      baseString = baseString + "category=" + category;
+    } else {
+      baseString = baseString + "&category=" + category;
+    }
   } else {
-    // set default category
+    console.log("default categories");
   }
 
   if (difficulty) {
-    // handle difficulty
+    if (baseString[lastIndex] === "?") {
+      baseString = baseString + "difficulty=" + difficulty;
+    } else {
+      baseString = baseString + "&difficulty=" + difficulty;
+    }
   } else {
-    // handle no difficulty.
+    console.log("default difficulty");
   }
 
   return baseString;

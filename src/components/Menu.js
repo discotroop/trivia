@@ -1,10 +1,13 @@
 import React from "react";
+import Categories from "./Categories";
 
 class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      difficulty: ""
+      count: 10,
+      difficulty: "",
+      category: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,6 +23,7 @@ class Menu extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <Categories />
         <label>
           Difficulty:
           <input

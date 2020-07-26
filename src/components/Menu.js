@@ -6,30 +6,43 @@ class Menu extends React.Component {
     super(props);
     this.state = {
       count: 10,
-      difficulty: "",
-      category: 0
+      category: 0,
+      difficulty: ""
     };
     this.handleDifficultyChange = this.handleDifficultyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleCountChange = this.handleCountChange.bind(this);
   }
-  handleDifficultyChange(e) {
-    this.setState({ difficulty: e.target.value });
-    console.log(this.state.difficulty);
+  handleCountChange(e) {
+    this.setState({ count: e.target.value });
+    console.log(this.state.count);
   }
   handleCategoryChange(e) {
     this.setState({ category: e.target.value });
     console.log(this.state.category);
   }
-  handleCountChange(e) {
-    this.setState({ count: e.target.value });
-    console.log(this.state.count);
+  handleDifficultyChange(e) {
+    this.setState({ difficulty: e.target.value });
+    console.log(this.state.difficulty);
   }
 
   handleSubmit(e) {
     alert("submitting: " + this.state.difficulty);
-    this.props.submit("Questions");
+    console.log(
+      "count: ",
+      this.state.count,
+      "category: ",
+      this.state.category,
+      "difficulty: ",
+      this.state.difficulty
+    );
+    this.props.submit(
+      "Questions",
+      this.state.count,
+      this.state.category,
+      this.state.difficulty
+    );
     e.preventDefault();
   }
   render() {

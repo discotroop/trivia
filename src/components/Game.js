@@ -78,7 +78,7 @@ class Game extends React.Component {
       <div>
         <div className="top">
           <div className="question-number">
-            {this.fetchNewData()} Current Question # {this.state.iterator} /{" "}
+            {/* {this.fetchNewData()} Current Question # {this.state.iterator} /{" "} */}
             {this.state.questions.length}{" "}
           </div>
           <div className="score">
@@ -102,7 +102,8 @@ class Game extends React.Component {
 
   // functions to handle swapping out views and managing the game loop
   // function name = () => {... code } auto binds this to function
-  submit = selector => {
+  submit = (selector, category, count, difficulty) => {
+    this.fetchNewData(category, count, difficulty);
     this.setState({ views: selector });
   };
   dynamicView = selector => {
@@ -177,11 +178,20 @@ class Game extends React.Component {
       }
     }
   }
-  fetchNewData() {
-    let key = generateKey(15, 10, "medium");
+  fetchNewData(count, category, difficulty) {
+    let key = generateKey(count, category, difficulty);
     fetch(key)
       .then(res => res.json())
-      .then(data => {})
+      .then(data => {
+        data.results.forEach(function (question) {
+          question.incorrect_answers.push(question.correct_answer);
+        });
+        this.setState({
+          questions: data.results,
+          length: data.results.length,
+          iterator: 1
+        });
+      })
       .catch(console.log);
   }
 }

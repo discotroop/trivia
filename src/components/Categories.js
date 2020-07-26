@@ -93,7 +93,7 @@ const Categories = function (props) {
     <label>
       {" "}
       Category:
-      <select id="Category" name="Category">
+      <select id="Category" name="Category" onChange={props.change}>
         {categoryholder.map(category => (
           <option value={category.value} key={category.value}>
             {" "}

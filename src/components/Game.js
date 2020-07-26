@@ -55,7 +55,7 @@ class Game extends React.Component {
             correct
           </div>
         </div>
-        <div> {sampleInput} </div>
+        <div> </div>
         <div>{this.dynamicView(this.state.views)}</div>
       </div>
     );
@@ -65,14 +65,26 @@ class Game extends React.Component {
     views: "Menu",
     questions: [],
     iterator: 0,
-    score: 0
+    score: 0,
+    repeat: {
+      category: 10,
+      count: 10,
+      difficulty: "easy"
+    }
   };
 
   // functions to handle swapping out views and managing the game loop
   // function name = () => {... code } auto binds this to function
-  submit = (selector, category, count, difficulty) => {
-    this.fetchNewData(category, count, difficulty);
-    this.setState({ views: selector });
+  submit = (selector, count, category, difficulty) => {
+    this.fetchNewData(count, category, difficulty);
+    this.setState({
+      views: selector,
+      repeat: {
+        count: count,
+        category: category,
+        difficulty: difficulty
+      }
+    });
   };
   dynamicView = selector => {
     switch (selector) {
@@ -92,6 +104,8 @@ class Game extends React.Component {
             submit={this.submit}
             view={this.state.views}
             reset={this.reset}
+            repeat={this.state.repeat}
+            state={this.state}
           />
         );
       default:

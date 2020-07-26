@@ -5,7 +5,12 @@ const EndGame = props => {
     <div className="endGame">
       <button
         onClick={() => {
-          props.submit("Questions");
+          props.submit(
+            "Questions",
+            props.state.repeat.count,
+            props.state.repeat.category,
+            props.state.repeat.difficulty
+          );
           props.reset();
         }}
       >

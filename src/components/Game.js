@@ -10,32 +10,13 @@ import generateKey from "./helpers/GenerateKey.js";
 // on end, dismount game and mount end (replay => repeat call and do game, quit => base window)
 // strucute it out, who is the final source of truth for this Game ?
 
-// Show Cards
-// ** display only one card at a time
-// ** on answerClicked
-// ** check if answer correct
-// ** add iterator + 1
-// ** add score + 1
-// ** check for last card
-// ** if last card => end
-// ** else
-// ** remove present card
-// ** load next card
-// ** if answer wrong
-// ** add iterator + 1
-// ** check for last card
-// ** if last card => end
-// ** else
-// ** remove present card
-// ** load next card
-
 // Game End + Start + Loop
 // Game end is really part of the game loop
 // on app launch
 // ** display menu
-// hide card => delay fetch call
-// on menu selection submitted
-// construct api url
+// ** hide card => delay fetch call
+// ** on menu selection submitted
+// ** construct api url
 // ** call fetch
 // ** hide menu
 // ** display card [0]
@@ -54,19 +35,6 @@ import generateKey from "./helpers/GenerateKey.js";
 // score counte at top
 // menu
 // subsections of cards
-
-const sampleInput = function (props) {
-  return (
-    <div> hello </div>
-    // <form>
-    //   <label for="count"> Count </label>
-    //   <select id="count" name="count">
-    //     <option value="10"> 10 </option>
-    //     <option value="15"> 15 </option>{" "}
-    //   </select>
-    // </form>
-  );
-};
 
 class Game extends React.Component {
   constructor(props) {
@@ -136,22 +104,6 @@ class Game extends React.Component {
       score: 0
     });
   };
-  // Fetch api data and set it to state.
-  componentDidMount() {
-    fetch("https://opentdb.com/api.php?amount=10")
-      .then(res => res.json())
-      .then(data => {
-        data.results.forEach(function (question) {
-          question.incorrect_answers.push(question.correct_answer);
-        });
-        this.setState({
-          questions: data.results,
-          length: data.results.length,
-          iterator: 1
-        });
-      })
-      .catch(console.log);
-  }
 
   // Handle checking of answers and check for game ending conditions
   checkAnswer(answer, correctAnswer) {

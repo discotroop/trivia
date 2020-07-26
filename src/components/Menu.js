@@ -16,27 +16,17 @@ class Menu extends React.Component {
   }
   handleCountChange(e) {
     this.setState({ count: e.target.value });
-    console.log(this.state.count);
   }
   handleCategoryChange(e) {
     this.setState({ category: e.target.value });
-    console.log(this.state.category);
   }
   handleDifficultyChange(e) {
     this.setState({ difficulty: e.target.value });
-    console.log(this.state.difficulty);
   }
 
   handleSubmit(e) {
     alert("submitting: " + this.state.difficulty);
-    console.log(
-      "count: ",
-      this.state.count,
-      "category: ",
-      this.state.category,
-      "difficulty: ",
-      this.state.difficulty
-    );
+
     this.props.submit(
       "Questions",
       this.state.count,

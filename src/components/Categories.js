@@ -90,10 +90,15 @@ let categoryholder = [
 
 const Categories = function (props) {
   return (
-    <div>
-      {console.log("hello")}
-      {console.log(categoryholder[0])}
-    </div>
+    <label>
+      {" "}
+      Category:
+      <select id="Category" name="Category">
+        {categoryholder.map(category => (
+          <option value={category.value}> {category.name} </option>
+        ))}
+      </select>
+    </label>
   );
 };
 

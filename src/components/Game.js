@@ -179,12 +179,9 @@ class Game extends React.Component {
   }
   fetchNewData() {
     let key = generateKey(15, 10, "medium");
-    console.log(key);
     fetch(key)
       .then(res => res.json())
-      .then(data => {
-        console.log("data", data.results);
-      })
+      .then(data => {})
       .catch(console.log);
   }
 }

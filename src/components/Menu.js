@@ -15,6 +15,10 @@ class Menu extends React.Component {
   handleChange(e) {
     this.setState({ difficulty: e.target.value });
   }
+  handleCategoryChange(e) {
+    this.setState({ category: e.target.value });
+    console.log(this.state.category);
+  }
   handleSubmit(e) {
     alert("submitting: " + this.state.difficulty);
     this.props.submit("Questions");
@@ -23,6 +27,13 @@ class Menu extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <label>
+          Categories:
+          <select onChange={() => this.handleCategoryChange}>
+            <option value="hi"> testing </option>
+            <option value="hit"> testing2 </option>
+          </select>
+        </label>
         <Categories />
         <label>
           Difficulty:

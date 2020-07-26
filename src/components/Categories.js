@@ -95,7 +95,10 @@ const Categories = function (props) {
       Category:
       <select id="Category" name="Category">
         {categoryholder.map(category => (
-          <option value={category.value}> {category.name} </option>
+          <option value={category.value} key={category.value}>
+            {" "}
+            {category.name}{" "}
+          </option>
         ))}
       </select>
     </label>

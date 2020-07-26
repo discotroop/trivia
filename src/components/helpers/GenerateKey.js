@@ -13,7 +13,6 @@
 function generateKey(amount, category, difficulty) {
   // set default call
   let baseString = "https://opentdb.com/api.php?";
-  console.log(baseString[27]);
 
   // handle passed amount
   if (amount) {

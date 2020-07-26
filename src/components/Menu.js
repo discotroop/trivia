@@ -37,33 +37,35 @@ class Menu extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Count:
-          <input
-            type="number"
-            min="1"
-            max="50"
-            value={this.state.count}
-            onChange={this.handleCountChange}
-          ></input>
-        </label>
-        <br></br>
-        <Categories change={this.handleCategoryChange} />
-        <br></br>
-        <label>
-          Difficulty:
-          <select
-            value={this.state.difficulty}
-            onChange={this.handleDifficultyChange}
-          >
-            <option value="easy"> Easy </option>
-            <option value="medium"> Medium </option>
-            <option value="hard"> Hard </option>
-          </select>
-        </label>
-        <input type="submit" value="Start" />
-      </form>
+      <div className="menu-container">
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Count:
+            <input
+              type="number"
+              min="1"
+              max="50"
+              value={this.state.count}
+              onChange={this.handleCountChange}
+            ></input>
+          </label>
+          <br></br>
+          <Categories change={this.handleCategoryChange} />
+          <br></br>
+          <label>
+            Difficulty:
+            <select
+              value={this.state.difficulty}
+              onChange={this.handleDifficultyChange}
+            >
+              <option value="easy"> Easy </option>
+              <option value="medium"> Medium </option>
+              <option value="hard"> Hard </option>
+            </select>
+          </label>
+          <input type="submit" value="Start" />
+        </form>
+      </div>
     );
   }
 }

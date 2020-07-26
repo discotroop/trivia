@@ -1,6 +1,13 @@
 .card {
   background-color: lightcoral;
 }
+.game-container {
+  border-color: black;
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
 
 .answers {
   background-color: lightgreen;
@@ -14,3 +21,42 @@ body {
   width: 500px;
   height: 600px;
 }
+
+.menu-container {
+  height: 90%;
+  width: 90%;
+  background-color: lightseagreen;
+}
+
+.color-palette {
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+}
+.square {
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+}
+.pale {
+  background-color: #deeaee;
+}
+.paleRed {
+  background-color: #eea29a;
+}
+.darkRed {
+  background-color: #c94c4c;
+  color: white;
+  font-weight: bolder;
+}
+.paleGreen {
+  background-color: #b1cbbb;
+}
+/* color reference */
+/* #deeaee
+#eea29a
+#c94c4c
+#b1cbbb */

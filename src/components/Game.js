@@ -36,6 +36,10 @@ import generateKey from "./helpers/GenerateKey.js";
 // menu
 // subsections of cards
 
+// Bells and whistles:
+// Nice CSS
+// Some sort of pause + color coding between questions, indicate write or wrong
+
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +47,7 @@ class Game extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="game-container">
         <div className="top">
           <div className="question-number">
             {/* {this.fetchNewData()} Current Question # {this.state.iterator} /{" "} */}
@@ -57,6 +61,12 @@ class Game extends React.Component {
         </div>
         <div> </div>
         <div>{this.dynamicView(this.state.views)}</div>
+        <div className="color-palette">
+          <div className="square pale"> #deeeaee </div>
+          <div className="square paleGreen"> #b1cbbb </div>
+          <div className="square paleRed">#eea29a </div>
+          <div className="square darkRed"> @c94c4c </div>
+        </div>
       </div>
     );
   }

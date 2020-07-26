@@ -55,6 +55,19 @@ import generateKey from "./helpers/GenerateKey.js";
 // menu
 // subsections of cards
 
+const sampleInput = function (props) {
+  return (
+    <div> hello </div>
+    // <form>
+    //   <label for="count"> Count </label>
+    //   <select id="count" name="count">
+    //     <option value="10"> 10 </option>
+    //     <option value="15"> 15 </option>{" "}
+    //   </select>
+    // </form>
+  );
+};
+
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -74,6 +87,7 @@ class Game extends React.Component {
             correct
           </div>
         </div>
+        <div> {sampleInput} </div>
         <div>{this.dynamicView(this.state.views)}</div>
       </div>
     );
@@ -126,7 +140,7 @@ class Game extends React.Component {
     fetch("https://opentdb.com/api.php?amount=10")
       .then(res => res.json())
       .then(data => {
-        data.results.forEach(function(question) {
+        data.results.forEach(function (question) {
           question.incorrect_answers.push(question.correct_answer);
         });
         this.setState({

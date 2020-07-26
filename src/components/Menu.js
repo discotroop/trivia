@@ -1,13 +1,38 @@
 import React from "react";
 
-const Menu = props => {
-  return (
-    <div className="Menu">
-      <button onClick={() => props.submit("Questions")}> Start Game </button>
-      {props.view}
-    </div>
-  );
-};
+class Menu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      difficulty: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(e) {
+    this.setState({ difficulty: e.target.value });
+  }
+  handleSubmit(e) {
+    alert("submitting: " + this.state.difficulty);
+    this.props.submit("Questions");
+    e.preventDefault();
+  }
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Difficulty:
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+        </label>
+        <input type="submit" value="Start" />
+      </form>
+    );
+  }
+}
 
 export default Menu;
 

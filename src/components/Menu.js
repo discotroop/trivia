@@ -9,17 +9,22 @@ class Menu extends React.Component {
       difficulty: "",
       category: 0
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleDifficultyChange = this.handleDifficultyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.handleCountChange = this.handleCountChange.bind(this);
   }
-  handleChange(e) {
+  handleDifficultyChange(e) {
     this.setState({ difficulty: e.target.value });
     console.log(this.state.difficulty);
   }
   handleCategoryChange(e) {
     this.setState({ category: e.target.value });
     console.log(this.state.category);
+  }
+  handleCountChange(e) {
+    this.setState({ count: e.target.value });
+    console.log(this.state.count);
   }
 
   handleSubmit(e) {
@@ -30,14 +35,29 @@ class Menu extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <label>
+          Count:
+          <input
+            type="number"
+            min="1"
+            max="50"
+            value={this.state.count}
+            onChange={this.handleCountChange}
+          ></input>
+        </label>
+        <br></br>
         <Categories change={this.handleCategoryChange} />
+        <br></br>
         <label>
           Difficulty:
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
+          <select
+            value={this.state.difficulty}
+            onChange={this.handleDifficultyChange}
+          >
+            <option value="easy"> Easy </option>
+            <option value="medium"> Medium </option>
+            <option value="hard"> Hard </option>
+          </select>
         </label>
         <input type="submit" value="Start" />
       </form>
@@ -46,36 +66,3 @@ class Menu extends React.Component {
 }
 
 export default Menu;
-
-// <div className="Menu">
-// <header className="Menu-header">
-//   {/* <img src={logo} className="App-logo" alt="logo" /> */}
-//   <p>
-//     Welcome to Trivia
-//   </p>
-//   <button onClick={props.submit()}> click me </button>
-// </header>
-// <div>
-//   <h1> Select </h1>
-//   <form>
-//     <label for="count"> Number of Questions: </label>
-//     <select id="count" name='count'>
-//       <option value="10"> 10 </option>
-//       <option value='15'> 15 </option>
-//     </select>
-//     <label for="category"> Category: </label>
-//     <select id="category" name='category'>
-//       {/* change values to correct numbers ?  */}
-//       <option value="Arts"> Arts </option>
-//       <option value='Space'> Space </option>
-//     </select>
-//     <label for="difficulty"> Difficulty: </label>
-//     <select id="difficulty" name='difficulty'>
-//       {/* change values to correct numbers ?  */}
-//       <option value="easy"> Easy </option>
-//       <option value='medium'> Medium </option>
-//       <option value='hard'> Hard </option>
-//     </select>
-//   </form>
-// </div>
-// </div>

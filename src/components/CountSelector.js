@@ -1,6 +1,4 @@
 import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 
 let countHolder = [];
 function generateNumbers() {
@@ -21,9 +19,14 @@ const Count = ({ value, handleChange }) => {
         min="1"
         max="50"
         defaultValue={value}
-        onInput={console.log(value)}
+        // onInput={console.log(value)}
         onChange={console.log(value)}
       ></input>
+      <output
+        for="count"
+        onFormInput="value = count.valueAsNumber;"
+        defaultValue="hi"
+      ></output>
     </label>
   );
 };

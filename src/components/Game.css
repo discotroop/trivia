@@ -160,10 +160,22 @@ table {
   height: 90%;
   min-height: 400px;
   width: 100%;
-  background-color: #deeaee;
   border-style: solid;
   border-width: 1px;
   border-color: #eea29a;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.menu-container * {
+  margin: 10px;
+}
+
+button,
+.submit {
+  min-width: 180px;
+  max-width: 300px;
 }
 
 select {

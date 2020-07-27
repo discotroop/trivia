@@ -1,9 +1,6 @@
 import React from "react";
 import Categories from "./CategorySelector";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import Difficulty from "./DifficultySelector";
-import Count from "./CountSelector";
 
 class Menu extends React.Component {
   constructor(props) {
@@ -59,12 +56,13 @@ class Menu extends React.Component {
   }
   render() {
     return (
-      <div className="menu-container">
+      <div className="menu-container bg-light">
+        <div className="menu-header bg-primary">
+          <h1> Tiny Trivia </h1>
+          <h3> Welcome to Tiny Trivia! </h3>
+          <p> Make custom selections or just hit start to jump in! </p>
+        </div>
         <form onSubmit={this.handleSubmit}>
-          <Count
-            value={this.state.count}
-            handleChange={this.state.handleCountChange}
-          />
           <label>
             Count:
             <input
@@ -75,17 +73,15 @@ class Menu extends React.Component {
               onChange={this.handleCountChange}
             ></input>
           </label>
-          <br></br>
           <Categories
             value={this.state.categoryName}
             handleChange={this.handleCategoryChange}
           />
-          <br></br>
           <Difficulty
             value={this.state.difficulty}
             handleChange={this.handleDifficultyChange}
           />
-          <input type="submit" value="Start" />
+          <input class="btn btn-primary submit" type="submit" value="Start" />
         </form>
       </div>
     );

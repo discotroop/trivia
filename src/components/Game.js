@@ -49,9 +49,8 @@ class Game extends React.Component {
     return (
       <div className="temp">
         <div className="game-container">
-          <div className="top">
+          {/* <div className="top">
             <div className="question-number">
-              {/* {this.fetchNewData()} Current Question # {this.state.iterator} /{" "} */}
               {this.state.questions.length}{" "}
             </div>
             <div className="score">
@@ -59,8 +58,7 @@ class Game extends React.Component {
               Your Score {this.state.score} / {this.state.questions.length}{" "}
               correct
             </div>
-          </div>
-          <div> </div>
+          </div> */}
           <div>{this.dynamicView(this.state.views)}</div>
         </div>
         <div className="color-palette">

@@ -1,6 +1,5 @@
 import React from "react";
 import Answers from "./Answers.js";
-import _ from "lodash";
 import decodeHtml from "./helpers/decodeHtml";
 
 const Cards = ({ questions, checkAnswer, count }) => {

@@ -129,7 +129,10 @@ table {
 }
 
 /* End Reset */
-
+.temp {
+  display: flex;
+  flex-direction: row;
+}
 .card {
   background-color: lightcoral;
 }
@@ -137,8 +140,12 @@ table {
   border-color: black;
   border-style: solid;
   border-width: 10px;
-  border-radius: 5px;
+  border-radius: 1px;
   padding: 10px;
+  width: 100%;
+  max-width: 575px;
+  height: 100%;
+  min-height: 600px;
 }
 
 .answers {
@@ -149,28 +156,37 @@ table {
   display: none;
 }
 
-body {
-  width: 500px;
-  height: 600px;
-}
-
 .menu-container {
   height: 90%;
-  width: 90%;
-  background-color: lightseagreen;
+  min-height: 400px;
+  width: 100%;
+  background-color: #deeaee;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #eea29a;
+}
+
+select {
+  color: green;
+  background-color: #b1cbbb;
+  border-style: solid;
+  border-color: #c94c4c;
+  padding: 5px;
+  width: 30vw;
+  height: 30px;
 }
 
 .color-palette {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: auto auto;
 }
 .square {
-  width: 200px;
-  height: 200px;
-  line-height: 200px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
   text-align: center;
 }
 .pale {
@@ -192,3 +208,15 @@ body {
 #eea29a
 #c94c4c
 #b1cbbb */
+
+/* // Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... } */

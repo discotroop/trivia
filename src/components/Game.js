@@ -47,20 +47,22 @@ class Game extends React.Component {
   }
   render() {
     return (
-      <div className="game-container">
-        <div className="top">
-          <div className="question-number">
-            {/* {this.fetchNewData()} Current Question # {this.state.iterator} /{" "} */}
-            {this.state.questions.length}{" "}
+      <div className="temp">
+        <div className="game-container">
+          <div className="top">
+            <div className="question-number">
+              {/* {this.fetchNewData()} Current Question # {this.state.iterator} /{" "} */}
+              {this.state.questions.length}{" "}
+            </div>
+            <div className="score">
+              {" "}
+              Your Score {this.state.score} / {this.state.questions.length}{" "}
+              correct
+            </div>
           </div>
-          <div className="score">
-            {" "}
-            Your Score {this.state.score} / {this.state.questions.length}{" "}
-            correct
-          </div>
+          <div> </div>
+          <div>{this.dynamicView(this.state.views)}</div>
         </div>
-        <div> </div>
-        <div>{this.dynamicView(this.state.views)}</div>
         <div className="color-palette">
           <div className="square pale"> #deeeaee </div>
           <div className="square paleGreen"> #b1cbbb </div>

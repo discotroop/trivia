@@ -26,8 +26,8 @@ const Cards = ({ questions, checkAnswer, count }) => {
 
   return (
     <div>
-      <center>
-        <h1>Questions</h1>
+      <center className="text-primary">
+        <h1>Questions:</h1>
       </center>
       <div className="card-holder">
         <div className="card">

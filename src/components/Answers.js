@@ -7,6 +7,7 @@ const Answers = ({ answers, correctAnswer, checkAnswer }) => {
       <div className="answers">
         {answers.map(answer => (
           <button
+            className="btn btn-light"
             onClick={e => checkAnswer(e.target.textContent, correctAnswer)}
             key={decodeHtml(answer)}
           >

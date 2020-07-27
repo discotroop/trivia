@@ -59,14 +59,10 @@ class Game extends React.Component {
               correct
             </div>
           </div> */}
-          <div>{this.dynamicView(this.state.views)}</div>
+          <div className="bg-light card-container">
+            {this.dynamicView(this.state.views)}
+          </div>
         </div>
-        {/* <div className="color-palette">
-          <div className="square pale"> #deeeaee </div>
-          <div className="square paleGreen"> #b1cbbb </div>
-          <div className="square paleRed">#eea29a </div>
-          <div className="square darkRed"> @c94c4c </div>
-        </div> */}
       </div>
     );
   }

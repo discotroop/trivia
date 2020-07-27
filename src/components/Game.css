@@ -137,10 +137,6 @@ table {
   background-color: lightcoral;
 }
 .game-container {
-  border-color: black;
-  border-style: solid;
-  border-width: 10px;
-  border-radius: 1px;
   padding: 10px;
   width: 100%;
   max-width: 575px;
@@ -157,7 +153,7 @@ table {
 }
 
 .menu-container {
-  height: 90%;
+  height: 100%;
   min-height: 400px;
   width: 100%;
   border-style: solid;
@@ -170,6 +166,9 @@ table {
 }
 .menu-container * {
   margin: 10px;
+}
+.menu-header > h1 {
+  font-weight: bolder;
 }
 
 button,

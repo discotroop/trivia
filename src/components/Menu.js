@@ -57,13 +57,15 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="menu-container bg-light">
-        <div className="menu-header bg-primary">
-          <h1> Tiny Trivia </h1>
-          <h3> Welcome to Tiny Trivia! </h3>
-          <p> Make custom selections or just hit start to jump in! </p>
+        <div className="menu-header">
+          <h1 className="text-primary"> Tiny Trivia </h1>
+          <p className="text-secondary">
+            {" "}
+            Make custom selections or just hit start to jump in!{" "}
+          </p>
         </div>
         <form onSubmit={this.handleSubmit}>
-          <label>
+          <label className="text-secondary">
             Count:
             <input
               type="number"

@@ -20,6 +20,10 @@ import generateKey from "./helpers/GenerateKey.js";
 // Nice CSS
 // Some sort of pause + color coding between questions, indicate write or wrong
 
+// fix card so t/f always good in the same order
+// fix cards so shuffleArray is called on questions
+// add pause between items loading
+
 class Game extends React.Component {
   constructor(props) {
     super(props);

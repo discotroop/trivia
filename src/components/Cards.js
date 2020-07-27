@@ -26,12 +26,12 @@ const Cards = ({ questions, checkAnswer, count }) => {
 
   return (
     <div>
-      <center className="text-primary">
-        <h1>Questions:</h1>
-      </center>
       <div className="card-holder">
         <div className="card">
           <div className="card-body">
+            <center className="text-info">
+              <h1>Question:</h1>
+            </center>
             <h5 className="card-question">{decodeHtml(c[count].question)}</h5>
             <Answers
               answers={c[count].answers}

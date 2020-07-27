@@ -8,8 +8,8 @@ class Menu extends React.Component {
     this.state = {
       count: 10,
       category: 0,
-      difficulty: "Easy",
-      categoryName: "General Knowledge"
+      difficulty: "Difficulty",
+      categoryName: "Category"
     };
     this.handleDifficultyChange = this.handleDifficultyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,12 +31,21 @@ class Menu extends React.Component {
   }
 
   handleSubmit(e) {
-    this.props.submit(
-      "Questions",
-      this.state.count,
-      this.state.category,
-      this.state.difficulty
-    );
+    if (this.state.difficulty === "Difficulty") {
+      this.props.submit(
+        "Questions",
+        this.state.count,
+        this.state.category,
+        "easy"
+      );
+    } else {
+      this.props.submit(
+        "Questions",
+        this.state.count,
+        this.state.category,
+        this.state.difficulty
+      );
+    }
     e.preventDefault();
   }
   handleDropDown = e => {

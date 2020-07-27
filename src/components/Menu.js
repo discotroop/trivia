@@ -1,5 +1,7 @@
 import React from "react";
 import Categories from "./Categories";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 class Menu extends React.Component {
   constructor(props) {
@@ -13,6 +15,7 @@ class Menu extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleCountChange = this.handleCountChange.bind(this);
+    this.handleDropDown = this.handleDropDown.bind(this);
   }
   handleCountChange(e) {
     this.setState({ count: e.target.value });
@@ -35,9 +38,22 @@ class Menu extends React.Component {
     );
     e.preventDefault();
   }
+  handleDropDown = e => {
+    console.log(e);
+  };
   render() {
     return (
       <div className="menu-container">
+        <div className="drop-test">
+          <DropdownButton
+            id="dropdown-basic-button"
+            title="Select"
+            onSelect={this.handleDropDown}
+          >
+            <Dropdown.Item eventKey="Test 1">Test 1</Dropdown.Item>
+            <Dropdown.Item eventKey="test 2">test 2</Dropdown.Item>
+          </DropdownButton>{" "}
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>
             Count:

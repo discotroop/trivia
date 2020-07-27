@@ -3,7 +3,15 @@ import React from "react";
 const EndGame = props => {
   return (
     <div className="endGame">
+      <div className="end-game-info">
+        <h1 className="text-primary"> Game Over! </h1>
+        <h3 className="text-secondary">
+          {" "}
+          Your Score: {props.state.score} / {props.state.questions.length}{" "}
+        </h3>
+      </div>
       <button
+        className="btn btn-primary"
         onClick={() => {
           props.submit(
             "Questions",
@@ -18,6 +26,7 @@ const EndGame = props => {
         Play Again!{" "}
       </button>
       <button
+        className="btn btn-primary"
         onClick={() => {
           props.submit("Menu");
           props.reset();
@@ -26,7 +35,6 @@ const EndGame = props => {
         {" "}
         Main Menu{" "}
       </button>
-      {props.view}
     </div>
   );
 };

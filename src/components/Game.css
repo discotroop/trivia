@@ -129,13 +129,6 @@ table {
 }
 
 /* End Reset */
-.temp {
-  display: flex;
-  flex-direction: row;
-}
-.card {
-  background-color: lightcoral;
-}
 .game-container {
   padding: 10px;
   width: 100%;
@@ -143,7 +136,6 @@ table {
   height: 100%;
   min-height: 600px;
 }
-
 .answers {
   border-style: solid;
   border-width: 1px;
@@ -154,11 +146,6 @@ table {
 .answers * {
   margin: 5px;
 }
-
-.invisible {
-  display: none;
-}
-
 .menu-container {
   height: 100%;
   min-height: 400px;
@@ -193,57 +180,10 @@ button,
   max-width: 300px;
 }
 
-select {
-  color: green;
-  background-color: #b1cbbb;
-  border-style: solid;
-  border-color: #c94c4c;
-  padding: 5px;
-  width: 30vw;
-  height: 30px;
-}
-
-.color-palette {
-  width: 200px;
-  height: 200px;
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: auto auto;
-}
-.square {
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
+.endGame {
   text-align: center;
+  padding: 10px;
 }
-.pale {
-  background-color: #deeaee;
+.endGame * {
+  margin: 10px;
 }
-.paleRed {
-  background-color: #eea29a;
-}
-.darkRed {
-  background-color: #c94c4c;
-  color: white;
-  font-weight: bolder;
-}
-.paleGreen {
-  background-color: #b1cbbb;
-}
-/* color reference */
-/* #deeaee
-#eea29a
-#c94c4c
-#b1cbbb */
-
-/* // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... } */

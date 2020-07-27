@@ -31,8 +31,6 @@ class Menu extends React.Component {
   }
 
   handleSubmit(e) {
-    alert("submitting: " + this.state.difficulty);
-
     this.props.submit(
       "Questions",
       this.state.count,

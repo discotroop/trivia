@@ -3,6 +3,7 @@ import Categories from "./CategorySelector";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Difficulty from "./DifficultySelector";
+import Count from "./CountSelector";
 
 class Menu extends React.Component {
   constructor(props) {
@@ -23,11 +24,6 @@ class Menu extends React.Component {
     this.setState({ count: e.target.value });
   }
   handleCategoryChange(e) {
-    console.log(e);
-    console.log(typeof e);
-    console.log(this.trimNumber(e));
-    console.log(this.trimLetters(e));
-    console.log(e);
     this.setState({
       category: this.trimNumber(e),
       categoryName: this.trimLetters(e)
@@ -64,17 +60,11 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="menu-container">
-        <div className="drop-test">
-          <DropdownButton
-            id="dropdown-basic-button"
-            title="Select"
-            onSelect={this.handleDropDown}
-          >
-            <Dropdown.Item eventKey="Test 1">Test 1</Dropdown.Item>
-            <Dropdown.Item eventKey="test 2">test 2</Dropdown.Item>
-          </DropdownButton>{" "}
-        </div>
         <form onSubmit={this.handleSubmit}>
+          <Count
+            value={this.state.count}
+            handleChange={this.state.handleCountChange}
+          />
           <label>
             Count:
             <input

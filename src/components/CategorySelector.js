@@ -99,7 +99,7 @@ const Categories = ({ value, handleChange }) => {
     >
       {categoryholder.map(category => (
         <Dropdown.Item
-          eventKey={[category.name, category.value]}
+          eventKey={category.name + category.value}
           key={category.value}
         >
           {category.name}

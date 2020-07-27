@@ -25,7 +25,13 @@ class Menu extends React.Component {
   handleCategoryChange(e) {
     console.log(e);
     console.log(typeof e);
-    this.setState({ category: e.target.value });
+    console.log(this.trimNumber(e));
+    console.log(this.trimLetters(e));
+    console.log(e);
+    this.setState({
+      category: this.trimNumber(e),
+      categoryName: this.trimLetters(e)
+    });
   }
   handleDifficultyChange(e) {
     this.setState({ difficulty: e });
@@ -45,6 +51,16 @@ class Menu extends React.Component {
   handleDropDown = e => {
     console.log(e);
   };
+  trimNumber(string) {
+    let numberPattern = /\d+/g;
+    let result = string.match(numberPattern).join([]);
+    return result;
+  }
+  trimLetters(string) {
+    let stringPattern = /[a-zA-Z\s]/g;
+    let result = string.match(stringPattern).join([]);
+    return result;
+  }
   render() {
     return (
       <div className="menu-container">

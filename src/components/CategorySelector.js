@@ -1,4 +1,6 @@
 import React from "react";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 let categoryholder = [
   {
@@ -88,20 +90,22 @@ let categoryholder = [
   }
 ];
 
-const Categories = function (props) {
+const Categories = ({ value, handleChange }) => {
   return (
-    <label>
-      {" "}
-      Category:
-      <select id="Category" name="Category" onChange={props.change}>
-        {categoryholder.map(category => (
-          <option value={category.value} key={category.value}>
-            {" "}
-            {category.name}{" "}
-          </option>
-        ))}
-      </select>
-    </label>
+    <DropdownButton
+      id="category-selector"
+      title={value}
+      onSelect={handleChange}
+    >
+      {categoryholder.map(category => (
+        <Dropdown.Item
+          eventKey={[category.name, category.value]}
+          key={category.value}
+        >
+          {category.name}
+        </Dropdown.Item>
+      ))}
+    </DropdownButton>
   );
 };
 

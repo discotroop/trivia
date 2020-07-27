@@ -1,7 +1,8 @@
 import React from "react";
-import Categories from "./Categories";
+import Categories from "./CategorySelector";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import Difficulty from "./DifficultySelector";
 
 class Menu extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class Menu extends React.Component {
     this.state = {
       count: 10,
       category: 0,
-      difficulty: ""
+      difficulty: "Easy",
+      categoryName: "General Knowledge"
     };
     this.handleDifficultyChange = this.handleDifficultyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,10 +23,12 @@ class Menu extends React.Component {
     this.setState({ count: e.target.value });
   }
   handleCategoryChange(e) {
+    console.log(e);
+    console.log(typeof e);
     this.setState({ category: e.target.value });
   }
   handleDifficultyChange(e) {
-    this.setState({ difficulty: e.target.value });
+    this.setState({ difficulty: e });
   }
 
   handleSubmit(e) {
@@ -66,19 +70,15 @@ class Menu extends React.Component {
             ></input>
           </label>
           <br></br>
-          <Categories change={this.handleCategoryChange} />
+          <Categories
+            value={this.state.categoryName}
+            handleChange={this.handleCategoryChange}
+          />
           <br></br>
-          <label>
-            Difficulty:
-            <select
-              value={this.state.difficulty}
-              onChange={this.handleDifficultyChange}
-            >
-              <option value="easy"> Easy </option>
-              <option value="medium"> Medium </option>
-              <option value="hard"> Hard </option>
-            </select>
-          </label>
+          <Difficulty
+            value={this.state.difficulty}
+            handleChange={this.handleDifficultyChange}
+          />
           <input type="submit" value="Start" />
         </form>
       </div>

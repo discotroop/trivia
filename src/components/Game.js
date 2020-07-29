@@ -140,7 +140,12 @@ class Game extends React.Component {
       .then(res => res.json())
       .then(data => {
         data.results.forEach(function (question) {
-          question.incorrect_answers.push(question.correct_answer);
+          if (question.type === "boolean") {
+            question.incorrect_answers = ["True", "False"];
+          } else {
+            question.incorrect_answers.push(question.correct_answer);
+          }
+          console.log(data.results);
         });
         this.setState({
           questions: data.results,

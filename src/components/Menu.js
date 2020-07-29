@@ -90,7 +90,11 @@ class Menu extends React.Component {
             value={this.state.difficulty}
             handleChange={this.handleDifficultyChange}
           />
-          <input class="btn btn-primary submit" type="submit" value="Start" />
+          <input
+            className="btn btn-primary submit"
+            type="submit"
+            value="Start"
+          />
         </form>
       </div>
     );

@@ -145,7 +145,6 @@ class Game extends React.Component {
           } else {
             question.incorrect_answers.push(question.correct_answer);
           }
-          console.log(data.results);
         });
         this.setState({
           questions: data.results,

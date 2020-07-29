@@ -187,3 +187,7 @@ button,
 .endGame * {
   margin: 10px;
 }
+
+.review {
+  font-size: 10px;
+}

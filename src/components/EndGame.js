@@ -1,4 +1,5 @@
 import React from "react";
+import QuestionReview from "./QuestionReview";
 
 const EndGame = props => {
   return (
@@ -36,6 +37,10 @@ const EndGame = props => {
           {" "}
           Main Menu{" "}
         </button>
+      </div>
+      <div className="question-review">
+        {console.log(props.state.questions)}
+        <QuestionReview questions={props.state.questions} />
       </div>
     </div>
   );

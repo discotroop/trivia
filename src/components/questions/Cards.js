@@ -38,6 +38,7 @@ const Cards = ({ questions, checkAnswer, count }) => {
               correctAnswer={c[count].correctAnswer}
               checkAnswer={c[count].checkAnswer}
               type={c[count].type}
+              count={count}
             />
           </div>
         </div>

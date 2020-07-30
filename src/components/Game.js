@@ -120,6 +120,8 @@ class Game extends React.Component {
     });
   }
   // Handle checking of answers and check for game ending conditions
+
+  // NEED to PASS players ANSWERS into STATE here, so they can be used for REVIEW
   checkAnswer(answer, correctAnswer) {
     if (this.state.iterator === this.state.questions.length) {
       if (answer.trim() === correctAnswer.trim()) {
@@ -153,6 +155,7 @@ class Game extends React.Component {
           } else {
             question.incorrect_answers.push(question.correct_answer);
           }
+          question.playerAnswer = "";
         });
         this.setState({
           questions: data.results,

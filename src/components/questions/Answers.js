@@ -2,7 +2,7 @@ import React from "react";
 import decodeHtml from "../helpers/decodeHtml";
 import shuffleArray from "../helpers/shuffleArray";
 
-const Answers = ({ answers, correctAnswer, checkAnswer, type }) => {
+const Answers = ({ answers, correctAnswer, checkAnswer, type, count }) => {
   if (type === "multiple") {
     answers = shuffleArray(answers);
   }
@@ -12,7 +12,9 @@ const Answers = ({ answers, correctAnswer, checkAnswer, type }) => {
         {answers.map(answer => (
           <button
             className="btn btn-secondary"
-            onClick={e => checkAnswer(e.target.textContent, correctAnswer)}
+            onClick={e =>
+              checkAnswer(e.target.textContent, correctAnswer, count)
+            }
             key={decodeHtml(answer)}
           >
             {decodeHtml(answer)}{" "}

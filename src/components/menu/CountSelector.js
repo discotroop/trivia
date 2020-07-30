@@ -19,7 +19,6 @@ const Count = ({ value, handleChange }) => {
         min="1"
         max="50"
         defaultValue={value}
-        // onInput={console.log(value)}
         onChange={console.log(value)}
       ></input>
       <output

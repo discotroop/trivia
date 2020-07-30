@@ -39,7 +39,6 @@ const EndGame = props => {
         </button>
       </div>
       <div className="question-review">
-        {console.log(props.state.questions)}
         <QuestionReview questions={props.state.questions} />
       </div>
     </div>

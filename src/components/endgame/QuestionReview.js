@@ -21,7 +21,6 @@ const QuestionReview = ({ questions }) => {
       type: question.type
     })
   );
-  console.log(review);
 
   return (
     <div>

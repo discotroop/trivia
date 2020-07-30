@@ -15,7 +15,6 @@ class Menu extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleCountChange = this.handleCountChange.bind(this);
-    this.handleDropDown = this.handleDropDown.bind(this);
   }
   handleCountChange(e) {
     this.setState({ count: e.target.value });
@@ -48,9 +47,6 @@ class Menu extends React.Component {
     }
     e.preventDefault();
   }
-  handleDropDown = e => {
-    console.log(e);
-  };
   trimNumber(string) {
     let numberPattern = /\d+/g;
     let result = string.match(numberPattern).join([]);

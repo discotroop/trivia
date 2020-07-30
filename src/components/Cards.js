@@ -24,6 +24,8 @@ const Cards = ({ questions, checkAnswer, count }) => {
     })
   );
 
+  console.log(c.slice(1));
+
   return (
     <div>
       <div className="card-holder">

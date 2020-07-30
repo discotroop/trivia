@@ -110,7 +110,8 @@ class Game extends React.Component {
   };
 
   // Handle checking of answers and check for game ending conditions
-  checkAnswer(answer, correctAnswer) {
+  checkAnswer(e, answer, correctAnswer) {
+    console.log(e.target.classList);
     if (this.state.iterator === this.state.questions.length) {
       if (answer.trim() === correctAnswer.trim()) {
         this.setState({
@@ -123,10 +124,12 @@ class Game extends React.Component {
       });
     } else {
       if (answer.trim() === correctAnswer.trim()) {
-        this.setState({
-          iterator: this.state.iterator + 1,
-          score: this.state.score + 1
-        });
+        setTimeout(() => {
+          this.setState({
+            iterator: this.state.iterator + 1,
+            score: this.state.score + 1
+          });
+        }, 3000);
       } else {
         this.setState({
           iterator: this.state.iterator + 1

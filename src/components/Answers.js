@@ -12,7 +12,7 @@ const Answers = ({ answers, correctAnswer, checkAnswer, type }) => {
         {answers.map(answer => (
           <button
             className="btn btn-secondary"
-            onClick={e => checkAnswer(e.target.textContent, correctAnswer)}
+            onClick={e => checkAnswer(e, e.target.textContent, correctAnswer)}
             key={decodeHtml(answer)}
           >
             {decodeHtml(answer)}{" "}

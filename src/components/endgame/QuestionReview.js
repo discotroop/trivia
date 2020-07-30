@@ -29,7 +29,7 @@ const QuestionReview = ({ questions }) => {
         <div className="reviewCard">
           <p> {r.question} </p>
           <AnswerReview answers={r.answers} correctAnswer={r.correctAnswer} />
-          {r.correctAnswer}
+          <p className="text-success"> {r.correctAnswer} </p>{" "}
         </div>
       ))}
     </div>

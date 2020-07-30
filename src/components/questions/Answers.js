@@ -9,15 +9,15 @@ const Answers = ({ answers, correctAnswer, checkAnswer, type, count }) => {
   return (
     <div>
       <div className="answers">
-        {answers.map(answer => (
+        {answers.map((answer, index) => (
           <button
             className="btn btn-secondary"
             onClick={e =>
-              checkAnswer(e.target.textContent, correctAnswer, count)
+              checkAnswer(e.target.textContent, correctAnswer, index)
             }
             key={decodeHtml(answer)}
           >
-            {decodeHtml(answer)}{" "}
+            {decodeHtml(answer)} {index}
           </button>
         ))}
       </div>

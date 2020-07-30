@@ -60,6 +60,7 @@ class Game extends React.Component {
   state = {
     views: "Menu",
     questions: [],
+    answers: [],
     iterator: 0,
     score: 0,
     repeat: {
@@ -122,7 +123,19 @@ class Game extends React.Component {
   // Handle checking of answers and check for game ending conditions
 
   // NEED to PASS players ANSWERS into STATE here, so they can be used for REVIEW
-  checkAnswer(answer, correctAnswer) {
+
+  // use index on shallow copy of questions made using slice()
+
+  // or push {answer, correctAnswer} into answers array then compare and return them ?
+  // answers.map(answer) =. {
+  // if (answer.answer === correctAnswer ) { return <p green> answer </p> }
+  // else {
+  // return {<p red > answer </p> <p green> correct answer </p> }
+  // }
+  // }
+
+  // would that work ?
+  checkAnswer(answer, correctAnswer, index) {
     if (this.state.iterator === this.state.questions.length) {
       if (answer.trim() === correctAnswer.trim()) {
         this.setState({
@@ -143,6 +156,12 @@ class Game extends React.Component {
         this.bumpIterator();
       }
     }
+    let c = this.state.answers.slice();
+    c.push(index);
+    this.setState({
+      answers: c
+    });
+    console.log(this.state.answers);
   }
   fetchNewData(count, category, difficulty) {
     let key = generateKey(count, category, difficulty);

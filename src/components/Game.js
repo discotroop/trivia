@@ -28,6 +28,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.checkAnswer = this.checkAnswer.bind(this);
+    this.bumpIterator = this.bumpIterator.bind(this);
   }
   render() {
     return (
@@ -108,10 +109,13 @@ class Game extends React.Component {
       score: 0
     });
   };
-
+  bumpIterator() {
+    this.setState({
+      iterator: this.state.iterator + 1
+    });
+  }
   // Handle checking of answers and check for game ending conditions
-  checkAnswer(e, answer, correctAnswer) {
-    console.log(e.target.classList);
+  checkAnswer(answer, correctAnswer) {
     if (this.state.iterator === this.state.questions.length) {
       if (answer.trim() === correctAnswer.trim()) {
         this.setState({
@@ -124,16 +128,12 @@ class Game extends React.Component {
       });
     } else {
       if (answer.trim() === correctAnswer.trim()) {
-        setTimeout(() => {
-          this.setState({
-            iterator: this.state.iterator + 1,
-            score: this.state.score + 1
-          });
-        }, 3000);
-      } else {
         this.setState({
-          iterator: this.state.iterator + 1
+          score: this.state.score + 1
         });
+        this.bumpIterator();
+      } else {
+        this.bumpIterator();
       }
     }
   }

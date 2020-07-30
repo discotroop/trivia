@@ -1,5 +1,5 @@
 import React from "react";
-import decodeHtml from "./helpers/decodeHtml";
+import decodeHtml from "../helpers/decodeHtml";
 
 // check mark
 // http://jsfiddle.net/mirohristov/awayF/473/

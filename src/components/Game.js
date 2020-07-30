@@ -1,8 +1,8 @@
 import React from "react";
 import "./Game.css";
-import Cards from "./Cards.js";
-import Menu from "./Menu.js";
-import EndGame from "./EndGame.js";
+import Cards from "./questions/Cards.js";
+import Menu from "./menu/Menu.js";
+import EndGame from "./endgame/EndGame.js";
 import generateKey from "./helpers/GenerateKey.js";
 
 // add shuffle array to questions
@@ -23,6 +23,11 @@ import generateKey from "./helpers/GenerateKey.js";
 // fix card so t/f always good in the same order
 // fix cards so shuffleArray is called on questions
 // add pause between items loading
+
+// I need to spin off more / smaller components, the division of responsibility, is breaking things down, I think
+// answer buttons need to be classes + have state to do custom styling,
+// really maybe they should all have state ?
+// also add more subdirectories to keep things clean
 
 class Game extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from "react";
-import decodeHtml from "./helpers/decodeHtml";
-import shuffleArray from "./helpers/shuffleArray";
+import decodeHtml from "../helpers/decodeHtml";
+import shuffleArray from "../helpers/shuffleArray";
 
 const Answers = ({ answers, correctAnswer, checkAnswer, type }) => {
   if (type === "multiple") {

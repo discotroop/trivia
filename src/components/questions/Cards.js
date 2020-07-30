@@ -1,6 +1,6 @@
 import React from "react";
 import Answers from "./Answers.js";
-import decodeHtml from "./helpers/decodeHtml";
+import decodeHtml from "../helpers/decodeHtml";
 
 const Cards = ({ questions, checkAnswer, count }) => {
   let c = [

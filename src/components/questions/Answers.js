@@ -17,7 +17,7 @@ const Answers = ({ answers, correctAnswer, checkAnswer, type, count }) => {
             }
             key={decodeHtml(answer)}
           >
-            {decodeHtml(answer)} {index}
+            {decodeHtml(answer)}
           </button>
         ))}
       </div>

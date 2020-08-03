@@ -1,5 +1,4 @@
 import React from "react";
-import QuestionReview from "./QuestionReview";
 import Answers from "./Answers";
 
 const EndGame = props => {

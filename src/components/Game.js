@@ -5,29 +5,7 @@ import Menu from "./menu/Menu.js";
 import EndGame from "./endgame/EndGame.js";
 import generateKey from "./helpers/GenerateKey.js";
 
-// add shuffle array to questions
-
-// on game end
-// either hide cards or show all with correct answers ?
-
-// components to extract ?
-// question counter at top ?
-// score counte at top ?
-// menu
-// subsections of cards
-
-// Bells and whistles:
-// Nice CSS
-// Some sort of pause + color coding between questions, indicate write or wrong
-
-// fix card so t/f always good in the same order
-// fix cards so shuffleArray is called on questions
 // add pause between items loading
-
-// I need to spin off more / smaller components, the division of responsibility, is breaking things down, I think
-// answer buttons need to be classes + have state to do custom styling,
-// really maybe they should all have state ?
-// also add more subdirectories to keep things clean
 
 class Game extends React.Component {
   constructor(props) {
@@ -47,6 +25,7 @@ class Game extends React.Component {
     );
   }
 
+  // set initial state / default values
   state = {
     views: "Menu",
     questions: [],

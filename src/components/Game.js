@@ -112,7 +112,8 @@ class Game extends React.Component {
   reset = () => {
     this.setState({
       iterator: 1,
-      score: 0
+      score: 0,
+      answers: []
     });
   };
   bumpIterator() {

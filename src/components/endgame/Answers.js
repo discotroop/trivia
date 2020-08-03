@@ -9,7 +9,7 @@ const Answers = ({ answers }) => {
           return (
             <div className="review-card">
               <p> {decodeHtml(answer.question)} </p>
-              <p className="text-success"> Correct! {answer.answer} </p>
+              <p className="text-success"> {decodeHtml(answer.answer)} </p>
             </div>
           );
         } else {
@@ -19,11 +19,17 @@ const Answers = ({ answers }) => {
               <p>
                 {" "}
                 Your Answer:{" "}
-                <span className="text-danger"> {answer.answer} </span>{" "}
+                <span className="text-danger">
+                  {" "}
+                  {decodeHtml(answer.answer)}{" "}
+                </span>{" "}
               </p>
               <p>
                 Correct Answer:{" "}
-                <span className="text-info"> {answer.correctAnswer} </span>{" "}
+                <span className="text-info">
+                  {" "}
+                  {decodeHtml(answer.correctAnswer)}{" "}
+                </span>{" "}
               </p>
             </div>
           );

@@ -200,3 +200,6 @@ button,
   border-style: solid;
   border-width: 1px;
 }
+.review-card * {
+  margin: 5px;
+}

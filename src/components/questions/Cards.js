@@ -34,6 +34,7 @@ const Cards = ({ questions, checkAnswer, count }) => {
             </center>
             <h5 className="card-question">{decodeHtml(c[count].question)}</h5>
             <Answers
+              question={c[count].question}
               answers={c[count].answers}
               correctAnswer={c[count].correctAnswer}
               checkAnswer={c[count].checkAnswer}

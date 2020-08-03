@@ -135,7 +135,7 @@ class Game extends React.Component {
   // }
 
   // would that work ?
-  checkAnswer(answer, correctAnswer, index) {
+  checkAnswer(answer, correctAnswer, question) {
     if (this.state.iterator === this.state.questions.length) {
       if (answer.trim() === correctAnswer.trim()) {
         this.setState({
@@ -158,6 +158,7 @@ class Game extends React.Component {
     }
     let c = this.state.answers;
     c.push({
+      question: question,
       answer: answer,
       correctAnswer: correctAnswer
     });

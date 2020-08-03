@@ -2,7 +2,7 @@ import React from "react";
 import decodeHtml from "../helpers/decodeHtml";
 import shuffleArray from "../helpers/shuffleArray";
 
-const Answers = ({ answers, correctAnswer, checkAnswer, type, count }) => {
+const Answers = ({ question, answers, correctAnswer, checkAnswer, type }) => {
   if (type === "multiple") {
     answers = shuffleArray(answers);
   }
@@ -13,7 +13,7 @@ const Answers = ({ answers, correctAnswer, checkAnswer, type, count }) => {
           <button
             className="btn btn-secondary"
             onClick={e =>
-              checkAnswer(e.target.textContent, correctAnswer, index)
+              checkAnswer(e.target.textContent, correctAnswer, question)
             }
             key={decodeHtml(answer)}
           >

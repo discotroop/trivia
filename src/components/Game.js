@@ -37,18 +37,8 @@ class Game extends React.Component {
   }
   render() {
     return (
-      <div className="temp">
+      <div className="main">
         <div className="game-container">
-          {/* <div className="top">
-            <div className="question-number">
-              {this.state.questions.length}{" "}
-            </div>
-            <div className="score">
-              {" "}
-              Your Score {this.state.score} / {this.state.questions.length}{" "}
-              correct
-            </div>
-          </div> */}
           <div className="bg-light card-container">
             {this.dynamicView(this.state.views)}
           </div>
@@ -70,8 +60,7 @@ class Game extends React.Component {
     }
   };
 
-  // functions to handle swapping out views and managing the game loop
-  // function name = () => {... code } auto binds this to function
+  // handle start button and play again button requests
   submit = (selector, count, category, difficulty) => {
     this.fetchNewData(count, category, difficulty);
     this.setState({
@@ -83,6 +72,8 @@ class Game extends React.Component {
       }
     });
   };
+
+  // handle switching between main menu, questions view and end game menu
   dynamicView = selector => {
     switch (selector) {
       case "Menu":
@@ -109,6 +100,7 @@ class Game extends React.Component {
         return <div> default </div>;
     }
   };
+  // reset state to avoid error when playing again
   reset = () => {
     this.setState({
       iterator: 1,
@@ -121,21 +113,8 @@ class Game extends React.Component {
       iterator: this.state.iterator + 1
     });
   }
-  // Handle checking of answers and check for game ending conditions
 
-  // NEED to PASS players ANSWERS into STATE here, so they can be used for REVIEW
-
-  // use index on shallow copy of questions made using slice()
-
-  // or push {answer, correctAnswer} into answers array then compare and return them ?
-  // answers.map(answer) =. {
-  // if (answer.answer === correctAnswer ) { return <p green> answer </p> }
-  // else {
-  // return {<p red > answer </p> <p green> correct answer </p> }
-  // }
-  // }
-
-  // would that work ?
+  // check for correct answers and handle ending game on last question
   checkAnswer(answer, correctAnswer, question) {
     if (this.state.iterator === this.state.questions.length) {
       if (answer.trim() === correctAnswer.trim()) {
@@ -157,6 +136,8 @@ class Game extends React.Component {
         this.bumpIterator();
       }
     }
+    // push questions, answers and correct answers into state.answers for
+    // easy access for review at end of game
     let c = this.state.answers;
     c.push({
       question: question,
@@ -166,8 +147,9 @@ class Game extends React.Component {
     this.setState({
       answers: c
     });
-    console.log(this.state.answers);
   }
+
+  // generate custom api key, call for data and populate game.state with questions
   fetchNewData(count, category, difficulty) {
     let key = generateKey(count, category, difficulty);
     fetch(key)

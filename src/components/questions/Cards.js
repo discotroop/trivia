@@ -3,6 +3,8 @@ import Answers from "./Answers.js";
 import decodeHtml from "../helpers/decodeHtml";
 
 const Cards = ({ questions, checkAnswer, count }) => {
+  // placeholder, to handle error wherein rendering fails while waiting for questions to be passed
+  // there is like a better work around
   let c = [
     {
       question: "test",
@@ -14,7 +16,7 @@ const Cards = ({ questions, checkAnswer, count }) => {
     }
   ];
 
-  questions.map((question, index) =>
+  questions.map(question =>
     c.push({
       question: question.question,
       answers: question.incorrect_answers,

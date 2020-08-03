@@ -156,8 +156,11 @@ class Game extends React.Component {
         this.bumpIterator();
       }
     }
-    let c = this.state.answers.slice();
-    c.push(index);
+    let c = this.state.answers;
+    c.push({
+      answer: answer,
+      correctAnswer: correctAnswer
+    });
     this.setState({
       answers: c
     });

@@ -1,5 +1,6 @@
 import React from "react";
 import QuestionReview from "./QuestionReview";
+import Answers from "./Answers";
 
 const EndGame = props => {
   return (
@@ -39,7 +40,7 @@ const EndGame = props => {
         </button>
       </div>
       <div className="question-review">
-        <QuestionReview questions={props.state.questions} />
+        <Answers answers={props.state.answers} />
       </div>
     </div>
   );

@@ -131,6 +131,9 @@ table {
 }
 
 /* End Reset */
+h1 {
+  font-size: 20px;
+}
 .game-container {
   padding: 10px;
   width: 100%;

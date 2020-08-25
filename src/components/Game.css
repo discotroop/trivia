@@ -178,6 +178,9 @@ h1 {
   flex-direction: column;
   padding: 10px;
 }
+.card-question {
+  padding: 10px;
+}
 
 button,
 .submit {

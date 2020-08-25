@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a39f68ac2eeffb8d5fba6503ffb494ec",
+    "revision": "9e4424e70ed49d12e765d8881258d57e",
     "url": "/trivia/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/trivia/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "ad0e7e4f0a3c7368e6a9",
-    "url": "/trivia/static/css/main.f678f4eb.chunk.css"
+    "revision": "86e8f5d4a77517eefd67",
+    "url": "/trivia/static/css/main.d3798ceb.chunk.css"
   },
   {
     "revision": "53a3a2809ce1da60e10a",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/trivia/static/js/2.fdef77b4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ad0e7e4f0a3c7368e6a9",
+    "revision": "86e8f5d4a77517eefd67",
     "url": "/trivia/static/js/main.5ff02f83.chunk.js"
   },
   {

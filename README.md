@@ -2,6 +2,10 @@
 
 Customizable Triva Game built with the opentdb.com API and React.
 
+You can see a live demo here (https://discotroop.github.io/trivia/)
+
+For those of us missing trivia nights during this time of social distancing.
+
 ## Available Scripts
 
 In the project directory, you can run:

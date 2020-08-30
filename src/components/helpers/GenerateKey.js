@@ -15,7 +15,7 @@ function generateKey(count, category, difficulty) {
     console.log("default categories");
   }
 
-  if (difficulty) {
+  if (difficulty.length > 2) {
     baseString = baseString + "&difficulty=" + difficulty.toLowerCase();
   } else {
     console.log("default difficulty");

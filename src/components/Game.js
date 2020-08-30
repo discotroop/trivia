@@ -35,7 +35,7 @@ class Game extends React.Component {
     repeat: {
       category: 10,
       count: 10,
-      difficulty: "easy"
+      difficulty: ""
     }
   };
 
@@ -134,6 +134,9 @@ class Game extends React.Component {
     fetch(key)
       .then(res => res.json())
       .then(data => {
+        if (data.results.length < 10) {
+          console.log("whoops!");
+        }
         data.results.forEach(function (question) {
           if (question.type === "boolean") {
             question.incorrect_answers = ["True", "False"];
@@ -148,7 +151,7 @@ class Game extends React.Component {
           iterator: 1
         });
       })
-      .catch(console.log);
+      .catch(console.log(key));
   }
 }
 

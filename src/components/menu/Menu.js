@@ -31,12 +31,7 @@ class Menu extends React.Component {
 
   handleSubmit(e) {
     if (this.state.difficulty === "Difficulty") {
-      this.props.submit(
-        "Questions",
-        this.state.count,
-        this.state.category,
-        "easy"
-      );
+      this.props.submit("Questions", this.state.count, this.state.category, "");
     } else {
       this.props.submit(
         "Questions",

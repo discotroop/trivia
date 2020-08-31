@@ -5,8 +5,6 @@ import Menu from "./menu/Menu.js";
 import EndGame from "./endgame/EndGame.js";
 import generateKey from "./helpers/GenerateKey.js";
 
-// add pause between items loading
-
 class Game extends React.Component {
   _isMounted = false;
   constructor(props) {
@@ -14,12 +12,15 @@ class Game extends React.Component {
     this.checkAnswer = this.checkAnswer.bind(this);
     this.bumpIterator = this.bumpIterator.bind(this);
   }
+  // possible method to handle errors
   componentDidMount() {
     this._isMounted = true;
   }
   componentWillUnmount() {
     this._isMounted = false;
   }
+  // or
+  // https://reactjs.org/docs/error-boundaries.html
 
   render() {
     return (
@@ -188,7 +189,6 @@ class Game extends React.Component {
     });
     console.log(this.state);
   }
-  // https://reactjs.org/docs/error-boundaries.html
 }
 
 export default Game;

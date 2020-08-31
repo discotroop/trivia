@@ -131,13 +131,19 @@ class Game extends React.Component {
   // generate custom api key, call for data and populate game.state with questions
   fetchNewData(count, category, difficulty) {
     let key = generateKey(count, category, difficulty);
+    debugger;
     fetch(key)
       .then(res => res.json())
       .then(data => {
         if (data.results.length < 10) {
           console.log("whoops!");
           this.handleFetchError();
+        } else {
+          console.log(data.results);
         }
+        return data;
+      })
+      .then(data => {
         data.results.forEach(function (question) {
           if (question.type === "boolean") {
             question.incorrect_answers = ["True", "False"];
@@ -156,9 +162,16 @@ class Game extends React.Component {
   }
   handleFetchError() {
     this.setState({
-      views: "Menu"
+      views: "Menu",
+      repeat: {
+        category: 10,
+        count: 10,
+        difficulty: ""
+      }
     });
+    console.log(this.state);
   }
+  // https://reactjs.org/docs/error-boundaries.html
 }
 
 export default Game;

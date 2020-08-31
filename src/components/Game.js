@@ -40,7 +40,6 @@ class Game extends React.Component {
     answers: [],
     iterator: 0,
     score: 0,
-    length: 0,
     repeat: {
       category: 10,
       count: 10,
@@ -50,16 +49,21 @@ class Game extends React.Component {
 
   // handle start button and play again button requests
   submit = (selector, count, category, difficulty) => {
-    this.fetchNewData(count, category, difficulty);
-    this.setState({
-      views: selector,
-      repeat: {
-        count: count,
-        category: category,
-        difficulty: difficulty
-      }
-    });
-    console.log(this.state);
+    if (count) {
+      this.fetchNewData(count, category, difficulty);
+      this.setState({
+        views: selector,
+        repeat: {
+          count: count,
+          category: category,
+          difficulty: difficulty
+        }
+      });
+    } else {
+      this.setState({
+        views: selector
+      });
+    }
   };
 
   // handle switching between main menu, questions view and end game menu
@@ -165,9 +169,8 @@ class Game extends React.Component {
         this.setState({
           questions: data.results,
           length: data.results.length,
-          iterator: 0
+          iterator: 1
         });
-        console.log(this.state);
       })
       .catch(console.log(key));
   }
@@ -181,7 +184,7 @@ class Game extends React.Component {
       },
       questions: [],
       length: 0,
-      iterator: 0
+      iterator: 1
     });
     console.log(this.state);
   }

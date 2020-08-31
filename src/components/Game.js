@@ -8,11 +8,19 @@ import generateKey from "./helpers/GenerateKey.js";
 // add pause between items loading
 
 class Game extends React.Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.checkAnswer = this.checkAnswer.bind(this);
     this.bumpIterator = this.bumpIterator.bind(this);
   }
+  componentDidMount() {
+    this._isMounted = true;
+  }
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
   render() {
     return (
       <div className="main">
@@ -32,6 +40,7 @@ class Game extends React.Component {
     answers: [],
     iterator: 0,
     score: 0,
+    length: 0,
     repeat: {
       category: 10,
       count: 10,
@@ -50,6 +59,7 @@ class Game extends React.Component {
         difficulty: difficulty
       }
     });
+    console.log(this.state);
   };
 
   // handle switching between main menu, questions view and end game menu
@@ -155,8 +165,9 @@ class Game extends React.Component {
         this.setState({
           questions: data.results,
           length: data.results.length,
-          iterator: 1
+          iterator: 0
         });
+        console.log(this.state);
       })
       .catch(console.log(key));
   }
@@ -167,7 +178,10 @@ class Game extends React.Component {
         category: 10,
         count: 10,
         difficulty: ""
-      }
+      },
+      questions: [],
+      length: 0,
+      iterator: 0
     });
     console.log(this.state);
   }

@@ -9,7 +9,7 @@ const Cards = ({ questions, checkAnswer, count }) => {
     {
       question: "test",
       answers: ["test"],
-      correctAnswer: "right",
+      correctAnswer: "test",
       checkAnswer: function () {
         console.log("sample");
       }

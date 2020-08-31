@@ -136,6 +136,7 @@ class Game extends React.Component {
       .then(data => {
         if (data.results.length < 10) {
           console.log("whoops!");
+          this.handleFetchError();
         }
         data.results.forEach(function (question) {
           if (question.type === "boolean") {
@@ -152,6 +153,11 @@ class Game extends React.Component {
         });
       })
       .catch(console.log(key));
+  }
+  handleFetchError() {
+    this.setState({
+      views: "Menu"
+    });
   }
 }
 
